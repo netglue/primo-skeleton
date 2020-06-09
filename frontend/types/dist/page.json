@@ -1,0 +1,84 @@
+{
+    "General": {
+        "title": {
+            "type": "StructuredText",
+            "config": {
+                "label": "Page Title",
+                "single": "heading1",
+                "useAsTitle": true
+            }
+        },
+        "description": {
+            "type": "StructuredText",
+            "config": {
+                "label": "Page Description",
+                "placeholder": "This description helps you leave notes and information about the page",
+                "multi": "Array"
+            }
+        }
+    },
+    "SEO": {
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "URL",
+                "placeholder": "Provide a unique url for this type of document"
+            }
+        },
+        "meta-title": {
+            "type": "Text",
+            "config": {
+                "label": "Browser Title",
+                "placeholder": "Provide a title for search engines"
+            }
+        },
+        "meta-description": {
+            "type": "Text",
+            "config": {
+                "label": "Search Engine Description",
+                "placeholder": "The page description shows up search results"
+            }
+        },
+        "robots": {
+            "type": "Select",
+            "config": {
+                "label": "Search Engines",
+                "placeholder": "Choose an indexing strategy",
+                "options": [
+                    "index,follow",
+                    "index,nofollow",
+                    "noindex,follow",
+                    "noindex,nofollow"
+                ],
+                "default_value": "index,follow"
+            }
+        },
+        "sitemap": {
+            "type": "Boolean",
+            "config": {
+                "label": "Include in Sitemap?",
+                "placeholder_false": "Exclude",
+                "placeholder_true": "Include",
+                "default": true
+            }
+        },
+        "priority": {
+            "type": "Number",
+            "config": {
+                "label": "Sitemap Priority",
+                "placeholder": "1-100",
+                "min": 1,
+                "max": 100
+            }
+        },
+        "search": {
+            "type": "Boolean",
+            "config": {
+                "label": "Include in site search?",
+                "placeholder_false": "Exclude",
+                "placeholder_true": "Include",
+                "default": true
+            }
+        }
+    }
+}

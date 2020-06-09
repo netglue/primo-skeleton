@@ -1,0 +1,8 @@
+/phpunit.xml
+/vendor/
+/build/
+/config/**/*.local.php
+/config/**/development.*.php
+/node_modules/
+/data/*
+!/data/cache/.gitkeep

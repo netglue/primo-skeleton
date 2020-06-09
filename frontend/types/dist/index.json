@@ -1,0 +1,8 @@
+[
+    {
+        "id": "page",
+        "name": "Generic Web Page",
+        "repeatable": true,
+        "value": "page.json"
+    }
+]

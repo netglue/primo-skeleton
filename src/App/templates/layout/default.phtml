@@ -1,0 +1,28 @@
+<?php
+
+$this->headLink()->prependStylesheet('assets/css/main-50ce13c17c8877cfcf93d64a66d5af2b-42af0e1e-aa69-11ea-8447-787b8ac8307f.css');
+$this->inlineScript()->prependFile('assets/js/main-d2fa57fa6dc13b0d0456ca1c38603b20-16f4e2cc-aa54-11ea-8ad1-787b8ac8307f.js');
+?>
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <?=$this->headTitle('Primo')->setSeparator(' - ')->setAutoEscape(false)?>
+    <?=$this->headMeta()?>
+    <?=$this->headLink()?>
+</head>
+<body class="app">
+    <header>
+
+    </header>
+    <main>
+        <?=$this->content?>
+    </main>
+    <footer>
+
+    </footer>
+    <?=$this->inlineScript()?>
+</body>
+</html>

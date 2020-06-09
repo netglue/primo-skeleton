@@ -1,7 +1,8 @@
 <?php
 
 $this->headLink()->prependStylesheet('assets/css/main-50ce13c17c8877cfcf93d64a66d5af2b-42af0e1e-aa69-11ea-8447-787b8ac8307f.css');
-$this->inlineScript()->prependFile('assets/js/main-d2fa57fa6dc13b0d0456ca1c38603b20-16f4e2cc-aa54-11ea-8ad1-787b8ac8307f.js');
+$this->inlineScript()->appendFile('assets/js/main-d2fa57fa6dc13b0d0456ca1c38603b20-16f4e2cc-aa54-11ea-8ad1-787b8ac8307f.js');
+$this->inlineScript()->appendFile('https://static.cdn.prismic.io/prismic.min.js?new=true');
 ?>
 <!DOCTYPE html>
 <html class="no-js">

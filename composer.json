@@ -30,6 +30,9 @@
     },
     "require": {
         "php": "^7.3",
+        "ext-apcu": "*",
+        "ext-json": "*",
+        "laminas/laminas-cache": "^2.9",
         "laminas/laminas-component-installer": "^2.1.2",
         "laminas/laminas-config-aggregator": "^1.2",
         "laminas/laminas-diactoros": "^2.3.0",
@@ -44,9 +47,11 @@
         "netglue/primo": "^0.1.0",
         "netglue/prismic-cli": "^0.1.0",
         "netglue/prismic-client": "^0.2.0",
-        "php-http/curl-client": "^2.1"
+        "php-http/curl-client": "^2.1",
+        "psr/cache": "^1.0"
     },
     "require-dev": {
+        "doctrine/coding-standard": "^8.0",
         "filp/whoops": "^2.7.1",
         "laminas/laminas-development-mode": "^3.2",
         "mezzio/mezzio-tooling": "^1.3",
@@ -62,7 +67,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "AppTest\\": "test/AppTest/"
+            "AppTest\\Unit\\": "test/Unit/",
+            "AppTest\\Integration\\": "test/Integration"
         }
     },
     "scripts": {

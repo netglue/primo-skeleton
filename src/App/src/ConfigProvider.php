@@ -1,48 +1,40 @@
 <?php
-
 declare(strict_types=1);
 
 namespace App;
 
-/**
- * The configuration provider for the App module
- *
- * @see https://docs.laminas.dev/laminas-component-installer/
- */
+use Laminas;
+use Laminas\ServiceManager\Factory\InvokableFactory;
+
 class ConfigProvider
 {
-    /**
-     * Returns the configuration array
-     *
-     * To add a bit of a structure, each section is defined in a separate
-     * method which returns an array with its configuration.
-     */
+    /** @return mixed[] */
     public function __invoke() : array
     {
         return [
             'dependencies' => $this->getDependencies(),
-            'templates'    => $this->getTemplates(),
+            'templates' => $this->getTemplates(),
+            'caches' => $this->laminasCaches(),
         ];
     }
 
-    /**
-     * Returns the container dependencies
-     */
+    /** @return mixed[] */
     public function getDependencies() : array
     {
         return [
-            'invokables' => [
-                Handler\PingHandler::class => Handler\PingHandler::class,
+            'factories' => [
+                Handler\PingHandler::class => InvokableFactory::class,
+                Cache\PrismicCache::class => Laminas\Cache\Service\StorageCacheAbstractServiceFactory::class,
             ],
-            'factories'  => [
-                Handler\HomePageHandler::class => Handler\HomePageHandlerFactory::class,
+            'delegators' => [
+                Cache\PrismicCache::class => [
+                    Cache\Psr6Delegator::class,
+                ],
             ],
         ];
     }
 
-    /**
-     * Returns the templates configuration
-     */
+    /** @return mixed[] */
     public function getTemplates() : array
     {
         return [
@@ -50,6 +42,21 @@ class ConfigProvider
                 'app'    => [__DIR__ . '/../templates/app'],
                 'error'  => [__DIR__ . '/../templates/error'],
                 'layout' => [__DIR__ . '/../templates/layout'],
+            ],
+        ];
+    }
+
+    /** @return mixed[] */
+    private function laminasCaches() : array
+    {
+        return [
+            Cache\PrismicCache::class => [
+                'adapter' => [
+                    'name' => Laminas\Cache\Storage\Adapter\Apcu::class,
+                    'options' => [
+                        'namespace' => 'Prismic',
+                    ],
+                ],
             ],
         ];
     }

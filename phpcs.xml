@@ -21,8 +21,9 @@
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing.NoSpaceBetweenColonAndNullabilitySymbol" />
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing.WhitespaceBeforeColon" />
 
-        <!-- Whilst this lib is compatible with 7.3, exclude this sniff -->
+        <!-- Whilst this lib is compatible with 7.3, exclude these sniffs -->
         <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint" />
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceEqualOperator.RequiredNullCoalesceEqualOperator" />
     </rule>
 
     <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSame">

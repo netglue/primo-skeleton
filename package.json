@@ -4,6 +4,10 @@
   "description": "Mezzio Skeleton for Prismic based projects",
   "main": "no.js",
   "private": true,
+  "browserslist": [
+    "> 1%",
+    "IE 10"
+  ],
   "watch": {
     "build:types": {
       "patterns": [

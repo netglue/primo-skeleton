@@ -1,9 +1,25 @@
 // This file is meant to be deleted in order to start with a completely blank slate for styling
+$bp-sm: 36rem;
+$bp-md: 48rem;
+$bp-lg: 62rem;
+$bp-xl: 75rem;
+$bp-xxl: 100rem;
+
+$purple: #9957A0;
+$yellow: #f5d42e;
+$feint: #f1f8ff;
 
 html, body {
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+body {
+  background-color: $purple;
 }
 
 a {
@@ -14,8 +30,122 @@ a {
   }
 }
 
-header, main, footer {
-  padding: 1rem;
-  max-width: 80rem;
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+footer {
+  padding: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #fff;
+  a {
+    color: #fff;
+    &:hover {
+      color: $yellow;
+    }
+  }
+}
+
+.container {
   margin: 0 auto;
+  @media screen and (min-width: $bp-xxl) {
+    max-width: 80rem;
+  }
+}
+
+.illustration-header {
+  background-color: $purple;
+  color: $yellow;
+  .container {
+    position: relative;
+    padding-bottom: 100%;
+    .illustration {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+    }
+    .caption {
+      padding: 1rem;
+      text-align: center;
+    }
+  }
+  @media screen and (min-width: $bp-sm) {
+    .container {
+      display: flex;
+      padding: 3rem;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .caption {
+        h1 {
+          font-size: 2rem;
+          @media screen and (min-width: $bp-lg) {
+            font-size: 3rem;
+          }
+        }
+
+        .lead {
+          font-size: 120%;
+        }
+
+        margin-right: auto;
+        text-align: right;
+      }
+
+      .illustration {
+        max-width: 40%;
+        margin-left: 3rem;
+        position: static;
+      }
+    }
+  }
+}
+
+.standard-prose {
+  background-color: $feint;
+  .rich-text {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 3rem;
+    @media screen and (min-width: $bp-xxl) {
+      padding: 3rem 0;
+    }
+  }
+}
+
+.prose-float {
+  background-color: $feint;
+  .prose, .illustration {
+    padding: 1rem;
+  }
+  .sub-section .container {
+    max-width: 60rem;
+  }
+  @media screen and (min-width: $bp-md) {
+    .sub-section .container {
+      display: flex;
+      padding: 3rem 0;
+    }
+    .illustration {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sub-section:nth-child(even) .container {
+      .illustration {
+        order: 0;
+      }
+      .prose {
+        order: 1;
+      }
+    }
+  }
 }

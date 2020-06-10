@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AppTest\Integration;
+namespace AppTest\Integration\Cache;
 
 use App\Cache\PrismicCache;
 use AppTest\Integration\Framework\TestCase;

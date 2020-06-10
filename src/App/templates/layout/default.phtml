@@ -1,8 +1,18 @@
 <?php
+declare(strict_types=1);
 
-$this->headLink()->prependStylesheet('assets/css/main-50ce13c17c8877cfcf93d64a66d5af2b-42af0e1e-aa69-11ea-8447-787b8ac8307f.css');
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
+$prismicToolbarUrl = sprintf(
+    'https://static.cdn.prismic.io/prismic.min.js?repo=%s&new=true',
+    $this->repositoryInformation()->host()
+);
+
+$this->headLink()->prependStylesheet('assets/css/main-d9a1cfea8f05f68ae62054430da5d00d-95425848-ab36-11ea-bf21-787b8ac8307f.css');
 $this->inlineScript()->appendFile('assets/js/main-d2fa57fa6dc13b0d0456ca1c38603b20-16f4e2cc-aa54-11ea-8ad1-787b8ac8307f.js');
-$this->inlineScript()->appendFile('https://static.cdn.prismic.io/prismic.min.js?new=true');
+$this->inlineScript()->appendFile($prismicToolbarUrl, 'text/javascript', ['async' => true, 'defer' => true]);
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -10,9 +20,12 @@ $this->inlineScript()->appendFile('https://static.cdn.prismic.io/prismic.min.js?
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <?=$this->headTitle('Primo')->setSeparator(' - ')->setAutoEscape(false)?>
-    <?=$this->headMeta()?>
-    <?=$this->headLink()?>
+    <?php
+    echo $this->headTitle() . PHP_EOL;
+    echo $this->headMeta()->setIndent("\t")->setSeparator("\n") . PHP_EOL;
+    echo $this->headLink()->setIndent("\t")->setSeparator("\n");
+    ?>
+
 </head>
 <body class="app">
     <header>
@@ -22,7 +35,9 @@ $this->inlineScript()->appendFile('https://static.cdn.prismic.io/prismic.min.js?
         <?=$this->content?>
     </main>
     <footer>
-
+        <div class="container">
+            <p>Brought to you by <a href="https://netglue.uk">Net Glue Ltd in sunny Devon</a></p>
+        </div>
     </footer>
     <?=$this->inlineScript()?>
 </body>

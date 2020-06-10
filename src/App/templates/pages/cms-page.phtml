@@ -1,0 +1,13 @@
+<?php
+declare(strict_types=1);
+
+use App\Content\WebPage;
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
+$document = $this->document ?? null;
+assert($document instanceof WebPage);
+
+echo $this->sliceZoneRenderer($document, 'body');
+

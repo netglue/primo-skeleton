@@ -17,6 +17,93 @@
             }
         }
     },
+    "Content": {
+        "body": {
+            "type": "Slices",
+            "fieldset": "Document Body",
+            "config": {
+                "choices": {
+                    "prose": {
+                        "type": "Slice",
+                        "fieldset": "Standard Prose",
+                        "description": "A regular block of written content",
+                        "icon": "text_fields",
+                        "non-repeat": {
+                            "content": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Your words",
+                                    "multi": "em,embed,heading1,heading2,heading3,heading4,heading5,heading6,hyperlink,image,list-item,o-list-item,paragraph,preformatted,rtl,strong",
+                                    "allowTargetBlank": true,
+                                    "labels": [
+                                        "code",
+                                        "quote"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "header-illustration": {
+                        "type": "Slice",
+                        "fieldset": "Illustration Header",
+                        "description": "An illustration with a header text",
+                        "icon": "vertical_split",
+                        "non-repeat": {
+                            "title": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Your words",
+                                    "single": "em,heading1,heading2,strong"
+                                }
+                            },
+                            "lead": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Lead Text",
+                                    "single": "paragraph"
+                                }
+                            },
+                            "image": {
+                                "type": "Image",
+                                "config": {
+                                    "label": "Illustration",
+                                    "constraint": {
+                                        "width": 800,
+                                        "height": 800
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "prose-float": {
+                        "type": "Slice",
+                        "fieldset": "Rich Text + Image",
+                        "description": "2 Column Alternating Layout",
+                        "icon": "vertical_split",
+                        "repeat": {
+                            "content": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Your words",
+                                    "multi": "em,heading1,heading2,heading3,heading4,heading5,heading6,hyperlink,list-item,o-list-item,paragraph,preformatted,rtl,strong"
+                                }
+                            },
+                            "image": {
+                                "type": "Image",
+                                "config": {
+                                    "label": "Illustration",
+                                    "constraint": {
+                                        "width": 800,
+                                        "height": 800
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
     "SEO": {
         "uid": {
             "type": "UID",
@@ -59,7 +146,7 @@
                 "label": "Include in Sitemap?",
                 "placeholder_false": "Exclude",
                 "placeholder_true": "Include",
-                "default": true
+                "default_value": true
             }
         },
         "priority": {
@@ -77,7 +164,7 @@
                 "label": "Include in site search?",
                 "placeholder_false": "Exclude",
                 "placeholder_true": "Include",
-                "default": true
+                "default_value": true
             }
         }
     }

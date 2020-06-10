@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace AppTest\Handler;
+namespace AppTest\Unit\Handler;
 
 use App\Handler\PingHandler;
+use AppTest\Unit\Framework\TestCase;
 use Laminas\Diactoros\Response\JsonResponse;
-use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 
 use function json_decode;
+
+use const JSON_THROW_ON_ERROR;
 
 class PingHandlerTest extends TestCase
 {

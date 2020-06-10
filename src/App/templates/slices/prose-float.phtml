@@ -1,0 +1,43 @@
+<?php
+declare(strict_types=1);
+
+use App\ViewRenderer;
+use Prismic\Document\Fragment\RichText;
+use Prismic\Document\Fragment\Slice;
+use Prismic\Serializer\HtmlSerializer;
+
+/** @var ViewRenderer $this */
+
+$slice = $this->slice ?? null;
+assert($slice instanceof Slice);
+
+$serializer = new HtmlSerializer($this->linkResolver());
+
+$items = $slice->items();
+
+if ($items->isEmpty()) {
+    return;
+}
+
+?>
+<section class="prose-float">
+<?php
+foreach ($items as $block) {
+    $text = $block->get('content');
+    if (! $text instanceof RichText || $text->isEmpty()) {
+        continue;
+    } ?>
+    <div class="sub-section">
+        <div class="container">
+            <div class="prose">
+                <?= $serializer($text) ?>
+            </div>
+            <div class="illustration">
+                <?= $serializer($block->get('image')) ?>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+</section>

@@ -1,5 +1,22 @@
 # Mezzio/Prismic Skeleton
 
+This skeleton is opinionated in order to supply quite a bit of functionality out of the box without too much complexity.
+
+<table>
+    <tr>
+        <th align="right">Templating</th>
+        <td>laminas-view</td>
+    </tr>
+    <tr>
+        <th align="right">DI&nbsp;Container</th>
+        <td>laminas-servicemanager</td>
+    </tr>
+    <tr>
+        <th align="right">Routing</th>
+        <td>fastroute</td>
+    </tr>
+</table>
+
 ## Rudimentary Frontend Asset Compilation
 
 After running `npm install`, if `./node_modules/.bin` is on your `$PATH`, you'll be able to issue `npm-watch`, otherwise, put it on your `$PATH` or type the full path to npm-watch.

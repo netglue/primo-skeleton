@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+
+use App\ViewRenderer;
+use Prismic\Document\Fragment\Slice;
+use Prismic\Serializer\HtmlSerializer;
+
+/** @var ViewRenderer $this */
+
+$slice = $this->slice ?? null;
+assert($slice instanceof Slice);
+
+$serializer = new HtmlSerializer($this->linkResolver());
+
+$content = $slice->primary()->get('content');
+if ($content->isEmpty()) {
+    return;
+}
+
+?>
+
+<section class="standard-prose">
+    <div class="container rich-text">
+        <?= $serializer($content) ?>
+    </div>
+</section>

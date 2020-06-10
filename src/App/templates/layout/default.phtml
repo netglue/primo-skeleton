@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\ViewRenderer;
+use Prismic\Document;
 
 /** @var ViewRenderer $this */
 
@@ -10,12 +11,28 @@ $prismicToolbarUrl = sprintf(
     $this->repositoryInformation()->host()
 );
 
+$document = $this->document ?? null;
+
+$language = 'en-gb';
+$canonical = $this->url();
+
+if ($document instanceof Document) {
+    $language = $document->lang();
+    $canonical = $this->linkResolver($document);
+}
+
 $this->headLink()->prependStylesheet('assets/css/main-d9a1cfea8f05f68ae62054430da5d00d-95425848-ab36-11ea-bf21-787b8ac8307f.css');
 $this->inlineScript()->appendFile('assets/js/main-d2fa57fa6dc13b0d0456ca1c38603b20-16f4e2cc-aa54-11ea-8ad1-787b8ac8307f.js');
 $this->inlineScript()->appendFile($prismicToolbarUrl, 'text/javascript', ['async' => true, 'defer' => true]);
+
+$this->headLink([
+    'rel' => 'canonical',
+    'href' => $canonical,
+]);
+
 ?>
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="<?= $language ?>">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,12 +44,12 @@ $this->inlineScript()->appendFile($prismicToolbarUrl, 'text/javascript', ['async
     ?>
 
 </head>
-<body class="app">
+<body>
     <header>
 
     </header>
     <main>
-        <?=$this->content?>
+        <?= $this->content ?? null ?>
     </main>
     <footer>
         <div class="container">

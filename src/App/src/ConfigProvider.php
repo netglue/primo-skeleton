@@ -41,6 +41,7 @@ class ConfigProvider
                 Handler\PingHandler::class => InvokableFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 // Replaces the Default Error Response Generator with CMS Errors, but retains the default as a fallback
+                // @todo rework this so that the cms errors are setup with a delegator and a debug flag to skip cms errors in dev.
                 Mezzio\Middleware\ErrorResponseGenerator::class => Middleware\Container\ErrorResponseGeneratorFactory::class,
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,

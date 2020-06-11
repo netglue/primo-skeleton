@@ -37,15 +37,21 @@ class ConfigProvider
             'factories' => [
                 Cache\PrismicCache::class => Laminas\Cache\Service\StorageCacheAbstractServiceFactory::class,
                 Console\ClearCacheCommand::class => Console\Container\ClearCacheCommandFactory::class,
+                Content\ErrorDocumentLocator::class => Content\Container\ErrorDocumentLocatorFactory::class,
                 Handler\PingHandler::class => InvokableFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
+                // Replaces the Default Error Response Generator with CMS Errors, but retains the default as a fallback
+                Mezzio\Middleware\ErrorResponseGenerator::class => Middleware\Container\ErrorResponseGeneratorFactory::class,
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,
+                // Redundant service id for shipped error response generator
+                Middleware\ErrorResponseGenerator::class => Middleware\Container\ErrorResponseGeneratorFactory::class,
                 Middleware\NotFoundDocumentLocator::class => Middleware\Container\NotFoundDocumentLocatorFactory::class,
                 Pipeline\CmsContentPipeline::class => Pipeline\Container\CmsContentPipelineFactory::class,
                 Pipeline\CmsNotFoundPipeline::class => Pipeline\Container\CmsNotFoundPipelineFactory::class,
                 Psr\Http\Client\ClientInterface::class => Http\HttpClientFactory::class,
                 Psr\Log\LoggerInterface::class => Log\FileLoggerFactory::class,
+                'DefaultMezzioErrorResponseGenerator' => Mezzio\Container\ErrorResponseGeneratorFactory::class,
             ],
             'aliases' => [
                 // Opting-In to Hydrating Result Sets. Turns Prismic Document Types into objects that we recognise.
@@ -135,6 +141,20 @@ class ConfigProvider
                 'finder' => null, // <- This will fail by default. We have no idea how to find your 404 document yet
                 'template' => 'cms::error', // <- The template to render the 404 page with.
                 'templateAttribute' => Primo\Middleware\PrismicTemplate::DEFAULT_TEMPLATE_ATTRIBUTE, // <- It's unlikely you'll want to change this
+            ],
+            'error' => [
+                'template' => 'cms::error', // <- Template for errors
+                'fallbackResponseGenerator' => 'DefaultMezzioErrorResponseGenerator',
+                'default' => null, // <- Must be a string that can return a SingleDocumentLocator from the container
+                /**
+                 * An array where keys are HTTP Status codes and values are strings that return
+                 * SingleDocumentLocator instances from the container.
+                 *
+                 * The array can be empty. In this case, the default error will always be used.
+                 *
+                 * It is useful however if you throw a 403 exception and want a custom 'You’re not allowed to see this' page
+                 */
+                'map' => [],
             ],
             /**
              * This array contains 'special' documents that you want to be able to retrieve and inject easily into

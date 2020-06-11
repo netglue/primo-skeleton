@@ -21,6 +21,12 @@ class ConfigProvider
             'caches' => $this->laminasCaches(),
             'primo' => $this->primoConfig(),
             'view_helpers' => $this->viewHelpers(),
+            'laminas-cli' => [
+                'commands' => $this->consoleCommands(),
+            ],
+            'console' => [
+                'commands' => $this->consoleCommands(),
+            ],
         ];
     }
 
@@ -30,6 +36,7 @@ class ConfigProvider
         return [
             'factories' => [
                 Cache\PrismicCache::class => Laminas\Cache\Service\StorageCacheAbstractServiceFactory::class,
+                Console\ClearCacheCommand::class => Console\Container\ClearCacheCommandFactory::class,
                 Handler\PingHandler::class => InvokableFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
@@ -176,6 +183,14 @@ class ConfigProvider
                 'repositoryInformation' => ViewHelper\RepositoryInformation::class,
                 'sliceZoneRenderer' => ViewHelper\SliceZoneRenderer::class,
             ],
+        ];
+    }
+
+    /** @return mixed[] */
+    private function consoleCommands() : array
+    {
+        return [
+            Console\ClearCacheCommand::DEFAULT_NAME => Console\ClearCacheCommand::class,
         ];
     }
 }

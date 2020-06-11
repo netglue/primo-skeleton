@@ -4,5 +4,11 @@
         "name": "Generic Web Page",
         "repeatable": true,
         "value": "page.json"
+    },
+    {
+        "id": "error",
+        "name": "Error Page",
+        "repeatable": true,
+        "value": "error.json"
     }
 ]

@@ -1,0 +1,13 @@
+<?php
+declare(strict_types=1);
+
+use App\Content\ErrorPage;
+use App\ViewRenderer;
+
+/** @var ViewRenderer $this */
+
+$document = $this->document ?? null;
+assert($document instanceof ErrorPage);
+
+echo $this->sliceZoneRenderer($document, 'body');
+

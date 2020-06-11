@@ -15,6 +15,11 @@ return [
                 'name' => 'Generic Web Page',
                 'repeatable' => true,
             ],
+            [
+                'id' => 'error',
+                'name' => 'Error Page',
+                'repeatable' => true,
+            ],
         ],
     ],
 ];

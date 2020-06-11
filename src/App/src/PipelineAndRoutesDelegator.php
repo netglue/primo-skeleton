@@ -38,6 +38,14 @@ class PipelineAndRoutesDelegator
             ],
         ]);
 
+        $errorPreview = $application->get(sprintf('/error-preview/{%s}', $params->uid()), CmsContentPipeline::class, 'error-preview');
+        $errorPreview->setOptions([
+            'defaults' => [
+                'template' => 'cms::error',
+                $params->type() => 'error',
+            ],
+        ]);
+
         return $application;
     }
 }

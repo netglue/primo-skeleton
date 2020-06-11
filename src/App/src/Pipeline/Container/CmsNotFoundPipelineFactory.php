@@ -4,15 +4,15 @@ declare(strict_types=1);
 namespace App\Pipeline\Container;
 
 use App\Middleware\DocumentMeta;
+use App\Middleware\NotFoundDocumentLocator;
 use Laminas\Stratigility\MiddlewarePipeInterface;
 use Mezzio\MiddlewareFactory;
-use Primo\Middleware\DocumentResolver;
 use Primo\Middleware\InjectRequestCookies;
 use Primo\Middleware\PreviewCacheHeaders;
 use Primo\Middleware\PrismicTemplate;
 use Psr\Container\ContainerInterface;
 
-class CmsContentPipelineFactory
+class CmsNotFoundPipelineFactory
 {
     public function __invoke(ContainerInterface $container) : MiddlewarePipeInterface
     {
@@ -23,8 +23,8 @@ class CmsContentPipelineFactory
             InjectRequestCookies::class,
             // Set Cache headers if we are in preview mode
             PreviewCacheHeaders::class,
-            // Routing should be done, so we should be able to resolve the current document
-            DocumentResolver::class,
+            // Locate a 404 document if possible
+            NotFoundDocumentLocator::class,
             // Apply metadata to the view for the resolved document
             DocumentMeta::class,
             // Render the view

@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use App\Middleware\CacheMiddleware;
+use App\Pipeline\CmsNotFoundPipeline;
 use Laminas\Stratigility\Middleware\ErrorHandler;
 use Mezzio\Application;
 use Mezzio\Handler\NotFoundHandler;
@@ -22,6 +24,8 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->pipe(ImplicitOptionsMiddleware::class);
     $app->pipe(MethodNotAllowedMiddleware::class);
     $app->pipe(UrlHelperMiddleware::class);
+    $app->pipe(CacheMiddleware::class); // <- Page Cache
     $app->pipe(DispatchMiddleware::class);
+    $app->pipe(CmsNotFoundPipeline::class); // <- Attempt to render a 404 using the CMS
     $app->pipe(NotFoundHandler::class);
 };

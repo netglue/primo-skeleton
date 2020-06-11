@@ -31,9 +31,14 @@ class ConfigProvider
             'factories' => [
                 Cache\PrismicCache::class => Laminas\Cache\Service\StorageCacheAbstractServiceFactory::class,
                 Handler\PingHandler::class => InvokableFactory::class,
+                Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
+                Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,
+                Middleware\NotFoundDocumentLocator::class => Middleware\Container\NotFoundDocumentLocatorFactory::class,
                 Pipeline\CmsContentPipeline::class => Pipeline\Container\CmsContentPipelineFactory::class,
+                Pipeline\CmsNotFoundPipeline::class => Pipeline\Container\CmsNotFoundPipelineFactory::class,
                 Psr\Http\Client\ClientInterface::class => Http\HttpClientFactory::class,
+                Psr\Log\LoggerInterface::class => Log\FileLoggerFactory::class,
             ],
             'aliases' => [
                 // Opting-In to Hydrating Result Sets. Turns Prismic Document Types into objects that we recognise.
@@ -42,6 +47,12 @@ class ConfigProvider
             'delegators' => [
                 Cache\PrismicCache::class => [
                     Cache\Psr6Delegator::class,
+                ],
+                Cache\PageCache::class => [
+                    Cache\Psr6Delegator::class,
+                ],
+                Laminas\Stratigility\Middleware\ErrorHandler::class => [
+                    Log\Container\ErrorHandlerDelegator::class,
                 ],
                 Mezzio\Application::class => [
                     PipelineAndRoutesDelegator::class,
@@ -68,6 +79,7 @@ class ConfigProvider
             'map' => [
                 /** Page Templates */
                 'cms::page' => __DIR__ . '/../templates/pages/cms-page.phtml',
+                'cms::error' => __DIR__ . '/../templates/pages/cms-error.phtml',
 
                 /** Slice Templates */
                 'slice::prose' => __DIR__ . '/../templates/slices/prose.phtml',
@@ -92,6 +104,12 @@ class ConfigProvider
                     'options' => ['namespace' => 'Prismic'],
                 ],
             ],
+            Cache\PageCache::class => [
+                'adapter' => [
+                    'name' => Laminas\Cache\Storage\Adapter\Apcu::class,
+                    'options' => ['namespace' => 'PrimoHttp'],
+                ],
+            ],
         ];
     }
 
@@ -101,7 +119,45 @@ class ConfigProvider
         return [
             'typeMap' => [
                 'default' => Primo\Content\Document::class,
-                'map' => [Content\WebPage::class => 'page'],
+                'map' => [
+                    Content\WebPage::class => 'page',
+                    Content\ErrorPage::class => 'error',
+                ],
+            ],
+            'notFound' => [
+                'finder' => null, // <- This will fail by default. We have no idea how to find your 404 document yet
+                'template' => 'cms::error', // <- The template to render the 404 page with.
+                'templateAttribute' => Primo\Middleware\PrismicTemplate::DEFAULT_TEMPLATE_ATTRIBUTE, // <- It's unlikely you'll want to change this
+            ],
+            /**
+             * This array contains 'special' documents that you want to be able to retrieve and inject easily into
+             * various places. A good example is a 404 document. You decide the identifier, and the value is an array
+             * that can be fed to the @link Content\Container\SingleDocumentLocatorStaticFactory
+             *
+             * Some examples are documented inline:
+             */
+            // phpcs:ignore
+            'documents' => [
+                // // Find a single document by bookmark
+                // 'document.404' => [
+                //     'bookmark' => 'error404',
+                // ],
+                // // Find a single document by uid
+                // 'document.special' => [
+                //     'type' => 'some-prismic-type',
+                //     'uid' => 'some-uid',
+                // ],
+                // // Find a single document by type (Useful for non-repeatable types)
+                // 'document.single' => [
+                //     'type' => 'a-single-type',
+                // ],
+                // // Find a document using Predicates
+                // 'document.something-else' => [
+                //     'predicates' => [
+                //         Prismic\Predicate::at('document.type', 'my-type'),
+                //         Prismic\Predicate::at('my.my-type.error-code', 403),
+                //     ],
+                // ],
             ],
         ];
     }

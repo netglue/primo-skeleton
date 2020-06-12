@@ -13,7 +13,6 @@ $aggregator = new ConfigAggregator([
     Phly\EventDispatcher\ConfigProvider::class,
     Laminas\Serializer\ConfigProvider::class,
     Laminas\Cache\ConfigProvider::class,
-    Netglue\Console\ConfigProvider::class,
     Primo\ConfigProvider::class,
     Primo\Cli\ConfigProvider::class,
     Laminas\HttpHandlerRunner\ConfigProvider::class,

@@ -1,9 +1,12 @@
 <?php
 declare(strict_types=1);
 
+use App\Content\Container\SingleDocumentLocatorStaticFactory;
+use Prismic\Predicate;
+
 return [
     'prismic' => [
-        'api' => null, // <- Nothing is gonna work without the API URL
+        'api' => 'https://primo.cdn.prismic.io/api/v2', // <- Nothing is gonna work without the API URL. Change it to your own repo.
         'token' => null, // <- And you must enter a token if required by your setup
     ],
     'primo' => [
@@ -20,6 +23,32 @@ return [
             'enabled' => false,
             // The URL that webhooks should be posted to. Again, this could be obscure to improve security.
             'url' => Primo\ConfigProvider::DEFAULT_WEBHOOK_URL,
+        ],
+        'notFound' => [
+            'finder' => 'document.404',
+        ],
+        'error' => [
+            'default' => 'document.500',
+        ],
+        'documents' => [
+            'document.404' => [
+                'predicates' => [
+                    Predicate::at('document.type', 'error'),
+                    Predicate::at('my.error.errorCode', 404),
+                ],
+            ],
+            'document.500' => [
+                'predicates' => [
+                    Predicate::at('document.type', 'error'),
+                    Predicate::at('my.error.errorCode', 500),
+                ],
+            ],
+        ],
+    ],
+    'dependencies' => [
+        'factories' => [
+            'document.404' => [SingleDocumentLocatorStaticFactory::class, 'document.404'],
+            'document.500' => [SingleDocumentLocatorStaticFactory::class, 'document.500'],
         ],
     ],
 ];

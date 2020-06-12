@@ -15,6 +15,22 @@ This skeleton is opinionated in order to supply quite a bit of functionality out
         <th align="right">Routing</th>
         <td>fastroute</td>
     </tr>
+    <tr>
+        <th align="right">PSR Event Dispatcher</th>
+        <td>phly/event-dispatcher</td>
+    </tr>
+    <tr>
+        <th align="right">PSR Cache</th>
+        <td>laminas-cache</td>
+    </tr>
+    <tr>
+        <th align="right">PSR Logger</th>
+        <td>monolog</td>
+    </tr>
+    <tr>
+        <th align="right">PSR HTTP Client</th>
+        <td>httplug</td>
+    </tr>
 </table>
 
 ## Rudimentary Frontend Asset Compilation

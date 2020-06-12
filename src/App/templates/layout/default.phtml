@@ -25,11 +25,16 @@ $this->headLink()->prependStylesheet('/assets/css/main-d9a1cfea8f05f68ae62054430
 $this->inlineScript()->appendFile('/assets/js/main-d2fa57fa6dc13b0d0456ca1c38603b20-16f4e2cc-aa54-11ea-8ad1-787b8ac8307f.js');
 $this->inlineScript()->appendFile($prismicToolbarUrl, 'text/javascript', ['async' => true, 'defer' => true]);
 
+
 $this->headLink([
     'rel' => 'canonical',
     'href' => $canonical,
 ]);
 
+// Syntax highlighting with Prism
+$this->headLink()->appendStylesheet('https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-okaidia.min.css');
+$this->inlineScript()->appendFile('https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js');
+$this->inlineScript()->appendFile('https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js');
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="<?= $language ?>">
@@ -53,6 +58,11 @@ $this->headLink([
     </main>
     <footer>
         <div class="container">
+            <p>
+                <a href="<?= $this->url('throw-it') ?>">Throw an Exception!</a>
+                |
+                <a href="/gimme/a/404">Find something that isn’t there…</a>
+            </p>
             <p>Brought to you by <a href="https://netglue.uk">Net Glue Ltd in sunny Devon</a></p>
         </div>
     </footer>

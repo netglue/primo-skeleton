@@ -1,11 +1,67 @@
-<?php $this->headTitle(sprintf('%d %s', $this->status, $this->reason)); ?>
+<?php
+$this->headTitle('500 Server Error');
+?>
+<section class="standard-prose">
+    <div class="container rich-text">
+        <h1>Server Error…</h1>
+        <h2>This is the default 500 error for Mezzio Setups</h2>
+        <p>You'll be seeing this if the error document in your repository does not resolve, or has not been setup at all.</p>
+        <p>In order for content managed errors to work, you'll need to do the following things:</p>
+        <h3>Create and publish your error document(s)</h3>
+        <p>In your Prismic content repository, make sure you have created and published the document you want to use.</p>
+        <h3>Tell the <code>`ErrorDocumentLocator`</code> how to find it</h3>
+        <p>
+            This is a series of configuration items. First of all, define a unique name so that the document(s) can be
+            located in the container. There are lots of ways to define <em>how</em> to find this document, so the below
+            is just a typical example:
+        </p>
+        <pre><code class="language-php">
+return [
+    'primo' => [
+        'documents' => [
+            'error.500' => [
+                'type' => 'error',
+                'uid'  => 'default-error-document',
+            ],
+            'error.403' => [
+                'type' => 'error',
+                'uid'  => 'unauthorized',
+            ],
+        ],
+    ],
+];
+        </code></pre>
+        <p>Then make sure that the unique name is returned as a single document locator from the container:</p>
+        <pre><code class="language-php">
+use App\Content\Container\SingleDocumentLocatorStaticFactory;
 
-<h1>Oops!</h1>
-<h2>This is awkward.</h2>
-<p>We encountered a <?=$this->escapeHtml(sprintf('%d %s', $this->status, $this->reason))?> error.</p>
-<?php if ($this->status == 404) : ?>
-    <p>
-        You are looking for something that doesn't exist or may have moved. Check out one of the links on this page
-        or head back to <a href="/">Home</a>.
-    </p>
-<?php endif; ?>
+return [
+    'dependencies' => [
+        'factories' => [
+            'error.500' => [SingleDocumentLocatorStaticFactory::class, 'error.500'],
+            'error.403' => [SingleDocumentLocatorStaticFactory::class, 'error.403'],
+        ],
+    ],
+];
+        </code></pre>
+        <p>Finally, configure the ErrorDocumentLocator so that it knows which document to get:</p>
+        <pre><code class="language-php">
+return [
+    'primo' => [
+        'error' => [
+            'default' => 'error.500',
+            'map' => [
+                500 => 'error.500', // <- That one isn't really needed
+                403 => 'error.403',
+            ],
+        ],
+    ],
+];
+        </code></pre>
+
+        <p>You can configure as many different error types as you like and the content shown will be looked up from the
+        configured map based on either the response HTTP status code, if any, or the exception code.</p>
+
+        <p><a href="<?=$this->url('home')?>">⬅︎ Back home</a></p>
+    </div>
+</section>

@@ -25,6 +25,9 @@ class RouteProvider
 
     public function __invoke() : void
     {
+        // Help FastRoute Limit matches for UID strings
+        $uidConstraint = sprintf('{%s:[\w-]+}', $this->params->uid());
+
         // The home page is "bookmarked"
         $home = $this->application->get('/', CmsContentPipeline::class, 'home');
         $home->setOptions([
@@ -35,7 +38,7 @@ class RouteProvider
         ]);
 
         // All documents with the 'page' type will be available at /{document-uid}
-        $page = $this->application->get(sprintf('/{%s}', $this->params->uid()), CmsContentPipeline::class, 'page');
+        $page = $this->application->get(sprintf('/%s', $uidConstraint), CmsContentPipeline::class, 'page');
         $page->setOptions([
             'defaults' => [
                 'template' => 'cms::page',
@@ -43,7 +46,7 @@ class RouteProvider
             ],
         ]);
 
-        $errorPreview = $this->application->get(sprintf('/error-preview/{%s}', $this->params->uid()), CmsContentPipeline::class, 'error-preview');
+        $errorPreview = $this->application->get(sprintf('/error-preview/%s', $uidConstraint), CmsContentPipeline::class, 'error-preview');
         $errorPreview->setOptions([
             'defaults' => [
                 'template' => 'cms::error',

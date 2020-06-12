@@ -1,0 +1,30 @@
+<?php
+declare(strict_types=1);
+
+use App\ViewRenderer;
+use Prismic\Document\Fragment\Slice;
+use Prismic\Document\Fragment\StringFragment;
+use Prismic\Serializer\HtmlSerializer;
+
+/** @var ViewRenderer $this */
+
+$slice = $this->slice ?? null;
+assert($slice instanceof Slice);
+
+$serializer = new HtmlSerializer($this->linkResolver());
+
+$code = $slice->primary()->get('code');
+if ($code->isEmpty()) {
+    return;
+}
+
+$lang = $slice->primary()->get('language');
+$lang = $lang instanceof StringFragment && ! $lang->isEmpty() ? (string) $lang : null;
+$lang = $lang ? sprintf('language-%s', $lang) : null;
+?>
+
+<section class="code-block">
+    <div class="container">
+        <pre><code class="<?= $lang ?>"><?= $serializer($code) ?></code></pre>
+    </div>
+</section>

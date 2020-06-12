@@ -99,6 +99,41 @@
                                 }
                             }
                         }
+                    },
+                    "code": {
+                        "type": "Slice",
+                        "fieldset": "Code Block",
+                        "description": "Syntax highlighted code",
+                        "icon": "code",
+                        "non-repeat": {
+                            "language": {
+                                "type": "Select",
+                                "config": {
+                                    "label": "Language",
+                                    "options": [
+                                        "html",
+                                        "css",
+                                        "xml",
+                                        "php",
+                                        "javascript",
+                                        "http",
+                                        "haskell",
+                                        "json",
+                                        "shell",
+                                        "yaml",
+                                        "sql"
+                                    ],
+                                    "default_value": "php"
+                                }
+                            },
+                            "code": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Your code",
+                                    "single": "preformatted"
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -36,7 +36,7 @@
   },
   "scripts": {
     "watch": "npm-watch",
-    "build:types": "vendor/bin/cli primo:build",
+    "build:types": "vendor/bin/laminas primo:build",
     "css:build": "mkdir -p build/css && node-sass -o build/css frontend/scss",
     "css:postcss": "postcss -r build/css/*",
     "css": "npm run css:build && npm run css:postcss && mkdir -p public/assets/css && vendor/bin/rev netglue:rev -s \"build/css/*.css\" -t public/assets/css -d -c 2 -r src/App/templates/layout/default.phtml",

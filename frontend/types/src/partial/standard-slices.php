@@ -7,6 +7,7 @@ $slices = [
     'prose' => require __DIR__ . '/../slices/prose.php',
     'header-illustration' => require __DIR__ . '/../slices/header-illustration.php',
     'prose-float' => require __DIR__ . '/../slices/prose-float.php',
+    'code' => require __DIR__ . '/../slices/code.php',
 ];
 $labels = [];
 

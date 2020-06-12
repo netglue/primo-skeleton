@@ -1,9 +1,56 @@
-<?php $this->headTitle('404 Not Found'); ?>
+<?php
+$this->headTitle('404 Not Found');
+?>
 
-<h1>Oops!</h1>
-<h2>This is awkward.</h2>
-<p>We encountered a 404 Not Found error.</p>
-<p>
-    You are looking for something that doesn't exist or may have moved. Check out one of the links on this page
-    or head back to <a href="<?=$this->url('home')?>">Home</a>.
-</p>
+<section class="standard-prose">
+    <div class="container rich-text">
+        <h1>Dang! 404</h1>
+        <h2>This is the default 404 for Mezzio Setups</h2>
+        <p>You'll be seeing this if the 404 document in your repository does not resolve, or has not been setup at all.</p>
+        <p>In order for content managed 404's to work, you'll need to do the following things:</p>
+        <h3>Create and publish your error document</h3>
+        <p>In your Prismic content repository, make sure you have created and published the document you want to use as the 404.</p>
+        <h3>Tell the <code>`NotFoundDocumentLocator`</code> how to find it</h3>
+        <p>
+            This is a series of configuration items. First of all, define a unique name so that the document can be
+            located in the container. There are lots of ways to define <em>how</em> to find this document, so the below
+            is just a typical example:
+        </p>
+        <pre><code class="language-php">
+return [
+    'primo' => [
+        'documents' => [
+            'my.404' => [
+                'type' => 'error',
+                'uid'  => 'my-document-uid',
+            ],
+        ],
+    ],
+];
+        </code></pre>
+        <p>Then make sure that the unique name is returned as a single document locator from the container:</p>
+        <pre><code class="language-php">
+use App\Content\Container\SingleDocumentLocatorStaticFactory;
+
+return [
+    'dependencies' => [
+        'factories' => [
+            'my.404' => [SingleDocumentLocatorStaticFactory::class, 'my.404'],
+        ],
+    ],
+];
+        </code></pre>
+        <p>Finally, configure the NotFoundDocumentLocator so that it knows which document to get:</p>
+        <pre><code class="language-php">
+return [
+    'primo' => [
+        'notFound' => [
+            'finder' => 'my.404',
+        ],
+    ],
+];
+        </code></pre>
+
+        <p><a href="<?=$this->url('home')?>">⬅︎ Back home</a></p>
+    </div>
+</section>

@@ -19,10 +19,6 @@ class CmsNotFoundPipelineFactory
         $factory = $container->get(MiddlewareFactory::class);
 
         return $factory->pipeline([
-            // Make sure the the Prismic Api has access to the request cookies
-            InjectRequestCookies::class,
-            // Set Cache headers if we are in preview mode
-            PreviewCacheHeaders::class,
             // Locate a 404 document if possible
             NotFoundDocumentLocator::class,
             // Apply metadata to the view for the resolved document

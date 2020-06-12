@@ -34,7 +34,7 @@ class DocumentMeta implements MiddlewareInterface
         }
 
         $this->headTitleHelper->getContainer()->set($document->metaTitle());
-        $this->metaHelper->setName('description', $document->metaDescription());
+        $this->metaHelper->setName('description', $document->metaDescription() ?? '');
         $robots = $document->robotsMeta();
         if ($robots) {
             $this->metaHelper->setName('robots', $robots);

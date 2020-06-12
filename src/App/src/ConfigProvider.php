@@ -67,14 +67,17 @@ class ConfigProvider
                 Laminas\Stratigility\Middleware\ErrorHandler::class => [
                     Log\Container\ErrorHandlerDelegator::class,
                 ],
+                Mezzio\Helper\UrlHelper::class => [
+                    Container\UrlHelperDelegator::class,
+                ],
                 Mezzio\Middleware\ErrorResponseGenerator::class => [
                     Middleware\Container\ErrorResponseGeneratorDelegator::class,
                 ],
-                Primo\Http\PrismicHttpClient::class => [
-                    Http\PrismicClientCachingDelegator::class,
-                ],
                 Phly\EventDispatcher\ListenerProvider\AttachableListenerProvider::class => [
                     Listener\ProviderDelegator::class,
+                ],
+                Primo\Http\PrismicHttpClient::class => [
+                    Http\PrismicClientCachingDelegator::class,
                 ],
             ],
         ];
@@ -91,6 +94,7 @@ class ConfigProvider
                 'prose' => 'slice::prose',
                 'header-illustration' => 'slice::header-illustration',
                 'prose-float' => 'slice::prose-float',
+                'code' => 'slice::code',
             ],
             'map' => [
                 /** Page Templates */
@@ -101,6 +105,7 @@ class ConfigProvider
                 'slice::prose' => __DIR__ . '/../templates/slices/prose.phtml',
                 'slice::header-illustration' => __DIR__ . '/../templates/slices/illustration-header.phtml',
                 'slice::prose-float' => __DIR__ . '/../templates/slices/prose-float.phtml',
+                'slice::code' => __DIR__ . '/../templates/slices/code.phtml',
             ],
             'paths' => [
                 'app'    => [__DIR__ . '/../templates/app'],

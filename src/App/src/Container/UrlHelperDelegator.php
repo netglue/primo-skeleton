@@ -12,7 +12,7 @@ class UrlHelperDelegator
 {
     public function __invoke(ContainerInterface $container, string $name, callable $target) : UrlHelper
     {
-        return new class($container->get(RouterInterface::class)) extends UrlHelper {
+        return new class ($container->get(RouterInterface::class)) extends UrlHelper {
             /** @inheritDoc */
             public function __invoke(
                 ?string $routeName = null,

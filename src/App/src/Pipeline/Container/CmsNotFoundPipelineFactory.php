@@ -7,8 +7,6 @@ use App\Middleware\DocumentMeta;
 use App\Middleware\NotFoundDocumentLocator;
 use Laminas\Stratigility\MiddlewarePipeInterface;
 use Mezzio\MiddlewareFactory;
-use Primo\Middleware\InjectRequestCookies;
-use Primo\Middleware\PreviewCacheHeaders;
 use Primo\Middleware\PrismicTemplate;
 use Psr\Container\ContainerInterface;
 

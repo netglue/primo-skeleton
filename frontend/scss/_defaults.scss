@@ -149,3 +149,12 @@ footer {
     }
   }
 }
+
+.code-block {
+  background-color: $feint;
+  padding: 1rem;
+  .container {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+}

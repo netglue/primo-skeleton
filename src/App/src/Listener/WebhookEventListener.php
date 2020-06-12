@@ -7,6 +7,7 @@ use Primo\Event\WebhookEvent;
 use Prismic\ApiClient;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Log\LoggerInterface;
+
 use function sprintf;
 
 /**

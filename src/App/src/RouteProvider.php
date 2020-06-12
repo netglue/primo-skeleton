@@ -7,6 +7,7 @@ use App\Pipeline\CmsContentPipeline;
 use Mezzio\Application;
 use Primo\Router\RouteParams;
 use Psr\Container\ContainerInterface;
+
 use function sprintf;
 
 class RouteProvider

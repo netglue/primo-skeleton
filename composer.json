@@ -48,6 +48,7 @@
         "netglue/laminas-symfony-console": "^0.0.2",
         "netglue/primo": "dev-master",
         "netglue/prismic-cli": "^0.1.1",
+        "phly/phly-event-dispatcher": "^1.0",
         "php-http/cache-plugin": "^1.7",
         "php-http/curl-client": "^2.1",
         "psr/cache": "^1.0",

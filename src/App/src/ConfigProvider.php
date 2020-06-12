@@ -6,6 +6,7 @@ namespace App;
 use Laminas;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Mezzio;
+use Phly;
 use Primo;
 use Prismic;
 use Psr;
@@ -39,6 +40,7 @@ class ConfigProvider
                 Console\ClearCacheCommand::class => Console\Container\ClearCacheCommandFactory::class,
                 Content\ErrorDocumentLocator::class => Content\Container\ErrorDocumentLocatorFactory::class,
                 Handler\PingHandler::class => InvokableFactory::class,
+                Listener\WebhookEventListener::class => Listener\Container\WebhookEventListenerFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,
@@ -52,6 +54,8 @@ class ConfigProvider
             'aliases' => [
                 // Opting-In to Hydrating Result Sets. Turns Prismic Document Types into objects that we recognise.
                 Prismic\ResultSet\ResultSetFactory::class => Primo\ResultSet\HydratingResultSetFactory::class,
+                Psr\EventDispatcher\EventDispatcherInterface::class => Phly\EventDispatcher\ErrorEmittingDispatcher::class,
+                Psr\EventDispatcher\ListenerProviderInterface::class => Phly\EventDispatcher\ListenerProvider\AttachableListenerProvider::class,
             ],
             'delegators' => [
                 Cache\PrismicCache::class => [
@@ -63,14 +67,14 @@ class ConfigProvider
                 Laminas\Stratigility\Middleware\ErrorHandler::class => [
                     Log\Container\ErrorHandlerDelegator::class,
                 ],
-                Mezzio\Application::class => [
-                    PipelineAndRoutesDelegator::class,
-                ],
                 Mezzio\Middleware\ErrorResponseGenerator::class => [
                     Middleware\Container\ErrorResponseGeneratorDelegator::class,
                 ],
                 Primo\Http\PrismicHttpClient::class => [
                     Http\PrismicClientCachingDelegator::class,
+                ],
+                Phly\EventDispatcher\ListenerProvider\AttachableListenerProvider::class => [
+                    Listener\ProviderDelegator::class,
                 ],
             ],
         ];

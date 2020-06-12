@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9be7dc06a9ad4fc0b60c7df49f910b6c",
+    "content-hash": "826db16eb395d434b0743531a1f36d3d",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -89,6 +89,60 @@
             "homepage": "https://github.com/container-interop/container-interop",
             "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
+        },
+        {
+            "name": "dflydev/fig-cookies",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-fig-cookies.git",
+                "reference": "733af78ddad60aec96f7c4a1204619dd4d62afff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dflydev/dflydev-fig-cookies/zipball/733af78ddad60aec96f7c4a1204619dd4d62afff",
+                "reference": "733af78ddad60aec96f7c4a1204619dd4d62afff",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": "^7.2",
+                "psr/http-message": "^1"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^4",
+                "phpstan/phpstan": "^0.10.1",
+                "phpunit/phpunit": "^7.2.6",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dflydev\\FigCookies\\": "src/Dflydev/FigCookies"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com"
+                }
+            ],
+            "description": "Cookies for PSR-7 HTTP Message Interface.",
+            "keywords": [
+                "cookies",
+                "psr-7",
+                "psr7"
+            ],
+            "time": "2020-01-02T16:13:22+00:00"
         },
         {
             "name": "fig/http-message-util",
@@ -1698,22 +1752,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/primo.git",
-                "reference": "55b288f562db295967feb584c2bb51575698d6dd"
+                "reference": "2df590502f674daea0f2799756418c8307b286b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/primo/zipball/55b288f562db295967feb584c2bb51575698d6dd",
-                "reference": "55b288f562db295967feb584c2bb51575698d6dd",
+                "url": "https://api.github.com/repos/netglue/primo/zipball/2df590502f674daea0f2799756418c8307b286b9",
+                "reference": "2df590502f674daea0f2799756418c8307b286b9",
                 "shasum": ""
             },
             "require": {
+                "dflydev/fig-cookies": "^2.0",
                 "laminas/laminas-diactoros": "^2.3",
                 "laminas/laminas-stdlib": "^3.2",
                 "mezzio/mezzio": "^3.2",
                 "mezzio/mezzio-helpers": "^5.3",
                 "mezzio/mezzio-router": "^3.1",
                 "mezzio/mezzio-template": "^2.0",
-                "netglue/prismic-client": "^0.3",
+                "netglue/prismic-client": "^0.3.2",
                 "php": ">= 7.3",
                 "psr/container": "^1.0",
                 "psr/event-dispatcher": "^1.0"
@@ -1786,7 +1841,7 @@
                 "source": "https://github.com/netglue/primo/tree/master",
                 "issues": "https://github.com/netglue/primo/issues"
             },
-            "time": "2020-06-12T08:08:55+00:00"
+            "time": "2020-06-12T11:35:12+00:00"
         },
         {
             "name": "netglue/prismic-cli",
@@ -1871,16 +1926,16 @@
         },
         {
             "name": "netglue/prismic-client",
-            "version": "0.3.0",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/prismic-client.git",
-                "reference": "76c43bcb37eb44c3bf78c6775a6bfd360249a813"
+                "reference": "2361449a95546af12f9143182e461957bec01199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/prismic-client/zipball/76c43bcb37eb44c3bf78c6775a6bfd360249a813",
-                "reference": "76c43bcb37eb44c3bf78c6775a6bfd360249a813",
+                "url": "https://api.github.com/repos/netglue/prismic-client/zipball/2361449a95546af12f9143182e461957bec01199",
+                "reference": "2361449a95546af12f9143182e461957bec01199",
                 "shasum": ""
             },
             "require": {
@@ -1933,7 +1988,7 @@
                 "psr-18",
                 "psr-7"
             ],
-            "time": "2020-06-12T08:07:20+00:00"
+            "time": "2020-06-12T10:46:15+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -1980,6 +2035,65 @@
                 "routing"
             ],
             "time": "2018-02-13T20:26:39+00:00"
+        },
+        {
+            "name": "phly/phly-event-dispatcher",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phly/phly-event-dispatcher.git",
+                "reference": "c63b2f18507aed1d1adcc9b54a20a5c1fdcbe3aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phly/phly-event-dispatcher/zipball/c63b2f18507aed1d1adcc9b54a20a5c1fdcbe3aa",
+                "reference": "c63b2f18507aed1d1adcc9b54a20a5c1fdcbe3aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "psr/container": "^1.0",
+                "psr/event-dispatcher": "^1.0"
+            },
+            "conflict": {
+                "phpspec/prophecy": "<1.7.5"
+            },
+            "provide": {
+                "psr/event-dispatcher-implementation": "^1.0"
+            },
+            "require-dev": {
+                "fig/event-dispatcher-util": "^1.0",
+                "phpunit/phpunit": "^7.1.1",
+                "zendframework/zend-coding-standard": "~1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "zf": {
+                    "config-provider": "Phly\\EventDispatcher\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/lazy_listener.php"
+                ],
+                "psr-4": {
+                    "Phly\\EventDispatcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Experimental event dispatcher for PSR-14",
+            "keywords": [
+                "components",
+                "event-dispatcher",
+                "psr-14"
+            ],
+            "time": "2019-03-25T16:03:22+00:00"
         },
         {
             "name": "php-http/cache-plugin",
@@ -2957,16 +3071,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.1.0",
+            "version": "v5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "00bed125812716d09b163f0727ef33bb49bf3448"
+                "reference": "0f0a271bc9b7d02a053d36fcdcb12662e2a8096e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/00bed125812716d09b163f0727ef33bb49bf3448",
-                "reference": "00bed125812716d09b163f0727ef33bb49bf3448",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0f0a271bc9b7d02a053d36fcdcb12662e2a8096e",
+                "reference": "0f0a271bc9b7d02a053d36fcdcb12662e2a8096e",
                 "shasum": ""
             },
             "require": {
@@ -3046,7 +3160,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-30T20:35:19+00:00"
+            "time": "2020-06-07T19:47:44+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3110,7 +3224,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v5.1.0",
+            "version": "v5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -3696,16 +3810,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.1.0",
+            "version": "v5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "90c2a5103f07feb19069379f3abdcdbacc7753a9"
+                "reference": "ac70459db781108db7c6d8981dd31ce0e29e3298"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/90c2a5103f07feb19069379f3abdcdbacc7753a9",
-                "reference": "90c2a5103f07feb19069379f3abdcdbacc7753a9",
+                "url": "https://api.github.com/repos/symfony/string/zipball/ac70459db781108db7c6d8981dd31ce0e29e3298",
+                "reference": "ac70459db781108db7c6d8981dd31ce0e29e3298",
                 "shasum": ""
             },
             "require": {
@@ -3777,7 +3891,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-20T17:43:50+00:00"
+            "time": "2020-06-11T12:16:36+00:00"
         },
         {
             "name": "webimpress/safe-writer",

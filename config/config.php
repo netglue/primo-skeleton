@@ -10,6 +10,7 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    Phly\EventDispatcher\ConfigProvider::class,
     Laminas\Serializer\ConfigProvider::class,
     Laminas\Cache\ConfigProvider::class,
     Netglue\Console\ConfigProvider::class,

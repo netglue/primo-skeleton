@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 return [
     'logging' => [
-        'name' => 'Primo',
+        'name' => 'PrimoSkeleton',
         'path' => __DIR__ . '/../../data/application.log',
     ],
     'dependencies' => [

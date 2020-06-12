@@ -7,6 +7,7 @@ use App\Content\ErrorDocumentLocator;
 use App\Middleware\ErrorResponseGenerator;
 use Mezzio\Template\TemplateRendererInterface;
 use Psr\Container\ContainerInterface;
+
 use function assert;
 use function is_callable;
 

@@ -40,13 +40,8 @@ class ConfigProvider
                 Content\ErrorDocumentLocator::class => Content\Container\ErrorDocumentLocatorFactory::class,
                 Handler\PingHandler::class => InvokableFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
-                // Replaces the Default Error Response Generator with CMS Errors, but retains the default as a fallback
-                // @todo rework this so that the cms errors are setup with a delegator and a debug flag to skip cms errors in dev.
-                Mezzio\Middleware\ErrorResponseGenerator::class => Middleware\Container\ErrorResponseGeneratorFactory::class,
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,
-                // Redundant service id for shipped error response generator
-                Middleware\ErrorResponseGenerator::class => Middleware\Container\ErrorResponseGeneratorFactory::class,
                 Middleware\NotFoundDocumentLocator::class => Middleware\Container\NotFoundDocumentLocatorFactory::class,
                 Pipeline\CmsContentPipeline::class => Pipeline\Container\CmsContentPipelineFactory::class,
                 Pipeline\CmsNotFoundPipeline::class => Pipeline\Container\CmsNotFoundPipelineFactory::class,
@@ -70,6 +65,9 @@ class ConfigProvider
                 ],
                 Mezzio\Application::class => [
                     PipelineAndRoutesDelegator::class,
+                ],
+                Mezzio\Middleware\ErrorResponseGenerator::class => [
+                    Middleware\Container\ErrorResponseGeneratorDelegator::class,
                 ],
                 Primo\Http\PrismicHttpClient::class => [
                     Http\PrismicClientCachingDelegator::class,
@@ -145,7 +143,6 @@ class ConfigProvider
             ],
             'error' => [
                 'template' => 'cms::error', // <- Template for errors
-                'fallbackResponseGenerator' => 'DefaultMezzioErrorResponseGenerator',
                 'default' => null, // <- Must be a string that can return a SingleDocumentLocator from the container
                 /**
                  * An array where keys are HTTP Status codes and values are strings that return

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "398bb4ea659391b2b5eb151e2c5abbd2",
+    "content-hash": "9be7dc06a9ad4fc0b60c7df49f910b6c",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1698,12 +1698,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/primo.git",
-                "reference": "dec85b55a50cbe1eb4b953dac99c7116b75e185d"
+                "reference": "55b288f562db295967feb584c2bb51575698d6dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/primo/zipball/dec85b55a50cbe1eb4b953dac99c7116b75e185d",
-                "reference": "dec85b55a50cbe1eb4b953dac99c7116b75e185d",
+                "url": "https://api.github.com/repos/netglue/primo/zipball/55b288f562db295967feb584c2bb51575698d6dd",
+                "reference": "55b288f562db295967feb584c2bb51575698d6dd",
                 "shasum": ""
             },
             "require": {
@@ -1713,7 +1713,7 @@
                 "mezzio/mezzio-helpers": "^5.3",
                 "mezzio/mezzio-router": "^3.1",
                 "mezzio/mezzio-template": "^2.0",
-                "netglue/prismic-client": "^0.2",
+                "netglue/prismic-client": "^0.3",
                 "php": ">= 7.3",
                 "psr/container": "^1.0",
                 "psr/event-dispatcher": "^1.0"
@@ -1786,7 +1786,7 @@
                 "source": "https://github.com/netglue/primo/tree/master",
                 "issues": "https://github.com/netglue/primo/issues"
             },
-            "time": "2020-06-11T11:49:42+00:00"
+            "time": "2020-06-12T08:08:55+00:00"
         },
         {
             "name": "netglue/prismic-cli",
@@ -1871,16 +1871,16 @@
         },
         {
             "name": "netglue/prismic-client",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/prismic-client.git",
-                "reference": "951549beca5856e09519b39c663523f9f195c3a0"
+                "reference": "76c43bcb37eb44c3bf78c6775a6bfd360249a813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/prismic-client/zipball/951549beca5856e09519b39c663523f9f195c3a0",
-                "reference": "951549beca5856e09519b39c663523f9f195c3a0",
+                "url": "https://api.github.com/repos/netglue/prismic-client/zipball/76c43bcb37eb44c3bf78c6775a6bfd360249a813",
+                "reference": "76c43bcb37eb44c3bf78c6775a6bfd360249a813",
                 "shasum": ""
             },
             "require": {
@@ -1933,7 +1933,7 @@
                 "psr-18",
                 "psr-7"
             ],
-            "time": "2020-06-04T19:51:54+00:00"
+            "time": "2020-06-12T08:07:20+00:00"
         },
         {
             "name": "nikic/fast-route",

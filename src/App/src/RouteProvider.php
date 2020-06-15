@@ -26,7 +26,7 @@ class RouteProvider
     public function __invoke() : void
     {
         // Help FastRoute Limit matches for UID strings
-        $uidConstraint = sprintf('{%s:[\w-]+}', $this->params->uid());
+        $uidConstraint = sprintf('{%s:[\w]+[\w-]+}', $this->params->uid());
 
         // The home page is "bookmarked"
         $home = $this->application->get('/', CmsContentPipeline::class, 'home');
@@ -38,7 +38,7 @@ class RouteProvider
         ]);
 
         // All documents with the 'page' type that have been tagged with 'docs' will be available at /docs/{document-uid}
-        $docs = $this->application->get(sprintf('/docs/%s', $uidConstraint), CmsContentPipeline::class, 'page');
+        $docs = $this->application->get(sprintf('/docs/%s', $uidConstraint), CmsContentPipeline::class, 'docs');
         $docs->setOptions([
             'defaults' => [
                 'template' => 'cms::page',

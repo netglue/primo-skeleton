@@ -96,6 +96,7 @@ class ConfigProvider
                 'header-illustration' => 'slice::header-illustration',
                 'prose-float' => 'slice::prose-float',
                 'code' => 'slice::code',
+                'tagged-documents' => 'slice::tagged-documents',
             ],
             'map' => [
                 /** Page Templates */
@@ -107,6 +108,7 @@ class ConfigProvider
                 'slice::header-illustration' => __DIR__ . '/../templates/slices/illustration-header.phtml',
                 'slice::prose-float' => __DIR__ . '/../templates/slices/prose-float.phtml',
                 'slice::code' => __DIR__ . '/../templates/slices/code.phtml',
+                'slice::tagged-documents' => __DIR__ . '/../templates/slices/tagged-documents.phtml',
             ],
             'paths' => [
                 'app'    => [__DIR__ . '/../templates/app'],

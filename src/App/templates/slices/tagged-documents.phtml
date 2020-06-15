@@ -1,0 +1,71 @@
+<?php
+declare(strict_types=1);
+
+use App\Content\HasWebPageMetaData;
+use App\ViewRenderer;
+use Prismic\Document;
+use Prismic\Document\Fragment\RichText;
+use Prismic\Document\Fragment\Slice;
+use Prismic\Document\Fragment\StringFragment;
+use Prismic\Serializer\HtmlSerializer;
+
+/** @var ViewRenderer $this */
+
+$slice = $this->slice ?? null;
+assert($slice instanceof Slice);
+
+$serializer = new HtmlSerializer($this->linkResolver());
+
+$items = $slice->primary();
+
+if ($items->isEmpty()) {
+    return;
+}
+
+$tag = $items->get('tag');
+$tag = $tag instanceof StringFragment ? (string) ($tag) : null;
+
+if (empty($tag)) {
+    return;
+}
+
+$results = $this->taggedDocuments($tag);
+
+if (! count($results)) {
+    return;
+}
+
+$docList = array_map(function (Document $document) : string {
+    if (! $document instanceof HasWebPageMetaData) {
+        return '';
+    }
+
+    $description = $document->metaDescription();
+    $description = $description ? sprintf('<p>%s</p>', $this->escapeHtml($description)) : '';
+
+    return sprintf(
+        <<<MARKUP
+        <a href="%s">
+            <h3>%s</h3>
+            %s
+        </a>
+        MARKUP,
+        $this->linkResolver($document),
+        $this->escapeHtml($document->metaTitle()),
+        $description
+    );
+}, $results);
+
+?>
+
+<section class="tagged-documents">
+    <div class="caption">
+        <div class="container">
+            <?= $serializer($items->get('title')) ?>
+            <?= $serializer($items->get('intro')) ?>
+        </div>
+    </div>
+    <div class="document-list">
+        <?= implode('', $docList) ?>
+    </div>
+</section>

@@ -289,12 +289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-cli.git",
-                "reference": "f4f46a9bbd6554081e4ca6b4e33cf88ade7ce978"
+                "reference": "1011e8e2c0874505ffc4025c2513f45c545aea8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-cli/zipball/f4f46a9bbd6554081e4ca6b4e33cf88ade7ce978",
-                "reference": "f4f46a9bbd6554081e4ca6b4e33cf88ade7ce978",
+                "url": "https://api.github.com/repos/laminas/laminas-cli/zipball/1011e8e2c0874505ffc4025c2513f45c545aea8b",
+                "reference": "1011e8e2c0874505ffc4025c2513f45c545aea8b",
                 "shasum": ""
             },
             "require": {
@@ -347,7 +347,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-06-11T21:13:34+00:00"
+            "time": "2020-06-15T21:41:51+00:00"
         },
         {
             "name": "laminas/laminas-component-installer",
@@ -1765,12 +1765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/primo.git",
-                "reference": "06c1fc2eb40ffb8490268749370fd5b765929f60"
+                "reference": "25fb4c9dccc126c8fb6300215f9a9621ce703661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/primo/zipball/06c1fc2eb40ffb8490268749370fd5b765929f60",
-                "reference": "06c1fc2eb40ffb8490268749370fd5b765929f60",
+                "url": "https://api.github.com/repos/netglue/primo/zipball/25fb4c9dccc126c8fb6300215f9a9621ce703661",
+                "reference": "25fb4c9dccc126c8fb6300215f9a9621ce703661",
                 "shasum": ""
             },
             "require": {
@@ -1855,7 +1855,7 @@
                 "source": "https://github.com/netglue/primo/tree/master",
                 "issues": "https://github.com/netglue/primo/issues"
             },
-            "time": "2020-06-15T15:25:38+00:00"
+            "time": "2020-06-15T21:58:04+00:00"
         },
         {
             "name": "netglue/prismic-cli",

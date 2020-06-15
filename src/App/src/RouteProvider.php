@@ -37,6 +37,16 @@ class RouteProvider
             ],
         ]);
 
+        // All documents with the 'page' type that have been tagged with 'docs' will be available at /docs/{document-uid}
+        $docs = $this->application->get(sprintf('/docs/%s', $uidConstraint), CmsContentPipeline::class, 'page');
+        $docs->setOptions([
+            'defaults' => [
+                'template' => 'cms::page',
+                $this->params->type() => 'page',
+                $this->params->tag() => 'docs',
+            ],
+        ]);
+
         // All documents with the 'page' type will be available at /{document-uid}
         $page = $this->application->get(sprintf('/%s', $uidConstraint), CmsContentPipeline::class, 'page');
         $page->setOptions([

@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\Content\Container\SingleDocumentLocatorStaticFactory;
+use App\ViewHelper\Container\SingleDocumentStaticFactory;
 use Prismic\Predicate;
 
 return [
@@ -43,12 +44,22 @@ return [
                     Predicate::at('my.error.errorCode', 500),
                 ],
             ],
+            'mainMenu' => [
+                'type' => 'link-list',
+                'uid' => 'main',
+            ],
         ],
     ],
     'dependencies' => [
         'factories' => [
             'document.404' => [SingleDocumentLocatorStaticFactory::class, 'document.404'],
             'document.500' => [SingleDocumentLocatorStaticFactory::class, 'document.500'],
+            'mainMenu' => [SingleDocumentLocatorStaticFactory::class, 'mainMenu'],
+        ],
+    ],
+    'view_helpers' => [
+        'factories' => [
+            'mainMenu' => [SingleDocumentStaticFactory::class, 'mainMenu'],
         ],
     ],
 ];

@@ -1,0 +1,41 @@
+{
+    "Link List": {
+        "title": {
+            "type": "StructuredText",
+            "config": {
+                "label": "Menu Title",
+                "placeholder": "A useful menu name",
+                "single": "heading1",
+                "useAsTitle": true
+            }
+        },
+        "uid": {
+            "type": "UID",
+            "config": {
+                "label": "Unique ID",
+                "placeholder": "A Unique identifier string"
+            }
+        },
+        "links": {
+            "type": "Group",
+            "config": {
+                "label": "Links",
+                "repeat": true,
+                "fields": {
+                    "url": {
+                        "type": "Link",
+                        "config": {
+                            "label": "Link Target"
+                        }
+                    },
+                    "anchor": {
+                        "type": "Text",
+                        "config": {
+                            "label": "Link Text"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

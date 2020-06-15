@@ -20,6 +20,11 @@ return [
                 'name' => 'Error Page',
                 'repeatable' => true,
             ],
+            [
+                'id' => 'link-list',
+                'name' => 'Link List',
+                'repeatable' => true,
+            ],
         ],
     ],
 ];

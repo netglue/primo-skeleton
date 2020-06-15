@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Primo\Cli\TypeBuilder as T;
 
-require 'global-config.php';
+require_once 'global-config.php';
 
 return [
     'General' => [

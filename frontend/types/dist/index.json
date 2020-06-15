@@ -10,5 +10,11 @@
         "name": "Error Page",
         "repeatable": true,
         "value": "error.json"
+    },
+    {
+        "id": "link-list",
+        "name": "Link List",
+        "repeatable": true,
+        "value": "link-list.json"
     }
 ]

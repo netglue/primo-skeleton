@@ -143,6 +143,35 @@
                                 }
                             }
                         }
+                    },
+                    "tagged-documents": {
+                        "type": "Slice",
+                        "fieldset": "Tagged Doc List",
+                        "description": "Lists documents with a given tag",
+                        "icon": "list_alt",
+                        "non-repeat": {
+                            "title": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Title",
+                                    "single": "heading2"
+                                }
+                            },
+                            "intro": {
+                                "type": "StructuredText",
+                                "config": {
+                                    "label": "Description",
+                                    "multi": "paragraph"
+                                }
+                            },
+                            "tag": {
+                                "type": "Text",
+                                "config": {
+                                    "label": "Tag",
+                                    "placeholder": "The tag you want to list"
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -50,6 +50,37 @@ footer {
   }
 }
 
+header {
+  background-color: $yellow;
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    li {
+      margin: 0;
+      padding: 0;
+      a {
+        display: block;
+        padding: 1rem 1.6rem;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        color: $purple;
+        position: relative;
+        border-bottom: 2px solid transparent;
+        transition: all .2s;
+        &:hover {
+          color: $yellow;
+          background-color: $purple;
+          border-bottom: 2px solid #fff;
+          transition: all .2s;
+        }
+      }
+    }
+  }
+}
+
 .container {
   margin: 0 auto;
   @media screen and (min-width: $bp-xxl) {

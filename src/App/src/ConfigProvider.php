@@ -40,6 +40,7 @@ class ConfigProvider
                 Console\ClearCacheCommand::class => Console\Container\ClearCacheCommandFactory::class,
                 Content\ErrorDocumentLocator::class => Content\Container\ErrorDocumentLocatorFactory::class,
                 Handler\PingHandler::class => InvokableFactory::class,
+                Laminas\Escaper\Escaper::class => InvokableFactory::class,
                 Listener\WebhookEventListener::class => Listener\Container\WebhookEventListenerFactory::class,
                 Log\ErrorHandlerLoggingListener::class => Log\Container\ErrorHandlerLoggingListenerFactory::class,
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
@@ -143,6 +144,7 @@ class ConfigProvider
                 'map' => [
                     Content\WebPage::class => 'page',
                     Content\ErrorPage::class => 'error',
+                    Content\LinkList::class => 'link-list',
                 ],
             ],
             'notFound' => [
@@ -201,14 +203,18 @@ class ConfigProvider
     {
         return [
             'factories' => [
+                ViewHelper\LinkList::class => ViewHelper\Container\LinkListFactory::class,
                 ViewHelper\LinkResolver::class => ViewHelper\Container\LinkResolverFactory::class,
                 ViewHelper\RepositoryInformation::class => ViewHelper\Container\RepositoryInformationFactory::class,
                 ViewHelper\SliceZoneRenderer::class => ViewHelper\Container\SliceZoneRendererFactory::class,
+                ViewHelper\TaggedDocuments::class => ViewHelper\Container\TaggedDocumentsFactory::class,
             ],
             'aliases' => [
+                'linkList' => ViewHelper\LinkList::class,
                 'linkResolver' => ViewHelper\LinkResolver::class,
                 'repositoryInformation' => ViewHelper\RepositoryInformation::class,
                 'sliceZoneRenderer' => ViewHelper\SliceZoneRenderer::class,
+                'taggedDocuments' => ViewHelper\TaggedDocuments::class,
             ],
         ];
     }

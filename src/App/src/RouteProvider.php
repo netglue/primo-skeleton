@@ -27,6 +27,7 @@ class RouteProvider
     {
         // Help FastRoute Limit matches for UID strings
         $uidConstraint = sprintf('{%s:[\w]+[\w-]+}', $this->params->uid());
+        $langConstraint = sprintf('{%s:[a-z]{2}-[a-z]{2}}', $this->params->lang());
 
         // The home page is "bookmarked"
         $home = $this->application->get('/', CmsContentPipeline::class, 'home');
@@ -37,8 +38,8 @@ class RouteProvider
             ],
         ]);
 
-        // All documents with the 'page' type that have been tagged with 'docs' will be available at /docs/{document-uid}
-        $docs = $this->application->get(sprintf('/docs/%s', $uidConstraint), CmsContentPipeline::class, 'docs');
+        // All documents with the 'page' type that have been tagged with 'docs' will be available at /{language}/docs/{document-uid}
+        $docs = $this->application->get(sprintf('/%s/docs/%s', $langConstraint, $uidConstraint), CmsContentPipeline::class, 'docs');
         $docs->setOptions([
             'defaults' => [
                 'template' => 'cms::page',
@@ -47,8 +48,8 @@ class RouteProvider
             ],
         ]);
 
-        // All documents with the 'page' type will be available at /{document-uid}
-        $page = $this->application->get(sprintf('/%s', $uidConstraint), CmsContentPipeline::class, 'page');
+        // All documents with the 'page' type will be available at /{language}/{document-uid}
+        $page = $this->application->get(sprintf('/%s/%s', $langConstraint, $uidConstraint), CmsContentPipeline::class, 'page');
         $page->setOptions([
             'defaults' => [
                 'template' => 'cms::page',

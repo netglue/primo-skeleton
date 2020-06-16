@@ -17,9 +17,21 @@ html, body {
   padding: 0;
   line-height: 1.2;
 }
-
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: $purple;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 1rem 0 1.5rem 0;
+}
+p {
+  line-height: 1.4;
+  margin: .5rem 0 1rem 0;
 }
 
 a {
@@ -36,7 +48,6 @@ img {
   height: auto;
 }
 
-
 footer {
   padding: 3rem;
   text-align: center;
@@ -48,6 +59,20 @@ footer {
       color: $yellow;
     }
   }
+  ul, p {
+    margin: 1rem;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 1rem;
+    padding: 0;
+    justify-content: center;
+    li {
+      padding: .5rem;
+      font-size: 1rem;
+    }
+  }
 }
 
 header {
@@ -56,10 +81,12 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: nowrap;
     list-style: none;
     li {
       margin: 0;
       padding: 0;
+      flex-grow: 1;
       a {
         display: block;
         padding: 1rem 1.6rem;
@@ -69,13 +96,21 @@ header {
         color: $purple;
         position: relative;
         border-bottom: 2px solid transparent;
-        transition: all .2s;
+        transition: background-color .2s, color .2s, border-bottom-color .2s;
         &:hover {
           color: $yellow;
           background-color: $purple;
           border-bottom: 2px solid #fff;
-          transition: all .2s;
+          transition: background-color .2s, color .2s, border-bottom-color .2s;
         }
+      }
+    }
+  }
+  @media screen and (min-width: $bp-md) {
+    ul {
+      justify-content: center;
+      li {
+        flex-grow: 0;
       }
     }
   }
@@ -83,7 +118,7 @@ header {
 
 .container {
   margin: 0 auto;
-  @media screen and (min-width: $bp-xxl) {
+  @media screen and (min-width: $bp-xl) {
     max-width: 80rem;
   }
 }
@@ -91,50 +126,44 @@ header {
 .illustration-header {
   background-color: $purple;
   color: $yellow;
+  border-bottom: 0.3rem solid $yellow;
   .container {
     position: relative;
-    padding-bottom: 100%;
     .illustration {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
+      padding: 2rem;
     }
     .caption {
-      padding: 1rem;
+      padding: 2rem;
       text-align: center;
     }
   }
   @media screen and (min-width: $bp-sm) {
     .container {
       display: flex;
-      padding: 3rem;
-
+      padding: 2rem;
       > div {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 50%;
       }
-
       .caption {
+        padding-right: 3rem;
         h1 {
           font-size: 2rem;
           @media screen and (min-width: $bp-lg) {
             font-size: 3rem;
           }
         }
-
-        .lead {
+        p {
           font-size: 120%;
         }
-
-        margin-right: auto;
         text-align: right;
       }
-
       .illustration {
-        max-width: 40%;
-        margin-left: 3rem;
-        position: static;
+        img {
+          max-height: 70%;
+        }
       }
     }
   }
@@ -187,5 +216,101 @@ header {
   .container {
     max-width: 60rem;
     margin: 0 auto;
+  }
+}
+
+.tagged-documents {
+  background-color: $purple;
+  .caption {
+    padding: 1rem;
+    color: #fff;
+    margin: 0 auto;
+    max-width: $bp-md;
+    h2 {
+      font-weight: normal;
+      font-size: 2.5rem;
+    }
+  }
+  .document-list {
+    margin-left: 1rem;
+    border-left: 1px solid rgba(255,255,255,0.6);
+    padding: 1rem;
+    h3 {
+      font-weight: normal;
+      font-size: 1.4rem;
+      padding: 0 0 .5rem 0;
+      margin: 0 0 .5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    p {
+      margin: 0;
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      padding: 2rem 1rem;
+      background: rgba(255,255,255,0);
+      transition: background-color .3s, color .3s;
+      position: relative;
+      &:hover {
+        background: rgba(255,255,255,0.6);
+        transition: background-color .3s, color .3s;
+        color: $purple;
+      }
+      &::before {
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        top: 50%;
+        margin-top: -.5rem;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        content: "";
+        left: -1.5rem;
+        box-shadow: 0 0 0.4rem rgba(0,0,0,0.5);
+      }
+    }
+  }
+  @media screen and (min-width: $bp-lg) {
+    .caption {
+      text-align: center;
+    }
+    .document-list {
+      margin: 0 auto;
+      max-width: $bp-lg;
+      border: none;
+      position: relative;
+      &::before {
+        display: block;
+        position: absolute;
+        content:"";
+        height: 100%;
+        left: 50%;
+        top: 0;
+        width: 1px;
+        background: rgba(255,255,255,0.6);
+      }
+      a {
+        width: 50%;
+        left: 50%;
+        padding-left: 3rem;
+        &::before {
+          left: -.5rem;
+          right: auto;
+        }
+        &:nth-child(even) {
+          left: 0;
+          text-align: right;
+          padding-left: 1rem;
+          padding-right: 3rem;
+          &::before {
+            left: auto;
+            right: -.5rem;
+          }
+        }
+      }
+    }
   }
 }

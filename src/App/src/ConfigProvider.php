@@ -109,11 +109,13 @@ class ConfigProvider
                 'slice::prose-float' => __DIR__ . '/../templates/slices/prose-float.phtml',
                 'slice::code' => __DIR__ . '/../templates/slices/code.phtml',
                 'slice::tagged-documents' => __DIR__ . '/../templates/slices/tagged-documents.phtml',
-            ],
-            'paths' => [
-                'app'    => [__DIR__ . '/../templates/app'],
-                'error'  => [__DIR__ . '/../templates/error'],
-                'layout' => [__DIR__ . '/../templates/layout'],
+
+                /** Layouts */
+                'layout::default' => __DIR__ . '/../templates/layout/default.phtml',
+
+                /** Default Mezzio Error Templates */
+                'error::404' => __DIR__ . '/../templates/error/404.phtml',
+                'error::error' => __DIR__ . '/../templates/error/error.phtml',
             ],
         ];
     }

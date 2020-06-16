@@ -14,26 +14,13 @@ assert($slice instanceof Slice);
 
 $serializer = new HtmlSerializer($this->linkResolver());
 
-$title = $slice->primary()->get('title');
-if (! $title instanceof RichText || $title->isEmpty()) {
-    return;
-}
-
-$leadText = $slice->primary()->get('lead');
-$lead = $leadText instanceof RichText ? $leadText->first() : null;
-$lead = $lead instanceof TextElement ? sprintf(
-    '<p class="lead">%s</p>',
-    $this->escapeHtml($lead->text())
-) : '';
-
-
 ?>
 
 <section class="illustration-header">
     <div class="container">
         <div class="caption">
-            <?= $serializer($title) ?>
-            <?= $lead ?>
+            <?= $serializer($slice->primary()->get('title')) ?>
+            <?= $serializer($slice->primary()->get('lead')) ?>
         </div>
         <div class="illustration">
             <?= $serializer($slice->primary()->get('image')) ?>

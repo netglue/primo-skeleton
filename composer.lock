@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98a9f1b1dcb7921c69654cd1460ccda4",
+    "content-hash": "5e70b7e48ec013470c29d3365292009c",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1838,16 +1838,16 @@
         },
         {
             "name": "netglue/primo",
-            "version": "dev-master",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/primo.git",
-                "reference": "906a2c3c5524ea30279c64eb2540caa5980b931c"
+                "reference": "8f851bac31485d06075a77426cd1089b1d9e6718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/primo/zipball/906a2c3c5524ea30279c64eb2540caa5980b931c",
-                "reference": "906a2c3c5524ea30279c64eb2540caa5980b931c",
+                "url": "https://api.github.com/repos/netglue/primo/zipball/8f851bac31485d06075a77426cd1089b1d9e6718",
+                "reference": "8f851bac31485d06075a77426cd1089b1d9e6718",
                 "shasum": ""
             },
             "require": {
@@ -1929,10 +1929,10 @@
                 "psr-11"
             ],
             "support": {
-                "source": "https://github.com/netglue/primo/tree/master",
+                "source": "https://github.com/netglue/primo/tree/0.3.0",
                 "issues": "https://github.com/netglue/primo/issues"
             },
-            "time": "2020-06-16T08:03:19+00:00"
+            "time": "2020-06-17T15:08:41+00:00"
         },
         {
             "name": "netglue/prismic-cli",
@@ -7258,7 +7258,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "netglue/primo": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,

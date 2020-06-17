@@ -2,8 +2,14 @@
 
 ![PHPUnit Test Suite](https://github.com/netglue/primo-skeleton/workflows/PHPUnit%20Test%20Suite/badge.svg)
 
+You can see this app running in its default state _(Including a whole load of documentation)_ at _TBC_
 
 This skeleton is opinionated in order to supply quite a bit of functionality out of the box without too much complexity.
+
+Importantly, it's the product of the [Mezzio Skeleton](https://github.com/mezzio/mezzio-skeleton), and using it is contingent on understanding [Prismic](https://prismic.io) - a headless CMS service and some familiarity with the following dependencies will be very useful:
+
+* [netglue/prismic-client](https://github.com/netglue/prismic-client)
+* [netglue/primo](https://github.com/netglue/primo)
 
 <table>
     <tr>

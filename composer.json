@@ -33,7 +33,7 @@
         "ext-apcu": "*",
         "ext-json": "*",
         "laminas/laminas-cache": "^2.9",
-        "laminas/laminas-cli": "dev-master",
+        "laminas/laminas-cli": "^0",
         "laminas/laminas-component-installer": "^2.1.2",
         "laminas/laminas-config-aggregator": "^1.2",
         "laminas/laminas-diactoros": "^2.3.0",
@@ -52,7 +52,8 @@
         "php-http/cache-plugin": "^1.7",
         "php-http/curl-client": "^2.1",
         "psr/cache": "^1.0",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "webmozart/assert": "^1.9"
     },
     "require-dev": {
         "doctrine/coding-standard": "^8.0",

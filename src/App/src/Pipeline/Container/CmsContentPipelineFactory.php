@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Pipeline\Container;
 
 use App\Middleware\DocumentMeta;
+use App\Middleware\ResolvedDocumentViewHelper;
 use Laminas\Stratigility\MiddlewarePipeInterface;
 use Mezzio\MiddlewareFactory;
 use Primo\Middleware\DocumentResolver;
@@ -25,6 +26,8 @@ class CmsContentPipelineFactory
             PreviewCacheHeaders::class,
             // Routing should be done, so we should be able to resolve the current document
             DocumentResolver::class,
+            // Provide the Resolved Document View Helper with the resolved document
+            ResolvedDocumentViewHelper::class,
             // Apply metadata to the view for the resolved document
             DocumentMeta::class,
             // Render the view

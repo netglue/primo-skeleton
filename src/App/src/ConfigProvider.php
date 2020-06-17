@@ -46,6 +46,7 @@ class ConfigProvider
                 Middleware\CacheMiddleware::class => Middleware\Container\CacheMiddlewareFactory::class,
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,
                 Middleware\NotFoundDocumentLocator::class => Middleware\Container\NotFoundDocumentLocatorFactory::class,
+                Middleware\ResolvedDocumentViewHelper::class => Middleware\Container\ResolvedDocumentViewHelperFactory::class,
                 Pipeline\CmsContentPipeline::class => Pipeline\Container\CmsContentPipelineFactory::class,
                 Pipeline\CmsNotFoundPipeline::class => Pipeline\Container\CmsNotFoundPipelineFactory::class,
                 Psr\Http\Client\ClientInterface::class => Http\HttpClientFactory::class,
@@ -97,6 +98,7 @@ class ConfigProvider
                 'prose-float' => 'slice::prose-float',
                 'code' => 'slice::code',
                 'tagged-documents' => 'slice::tagged-documents',
+                'related-documents' => 'slice::related-documents',
             ],
             'map' => [
                 /** Page Templates */
@@ -109,6 +111,7 @@ class ConfigProvider
                 'slice::prose-float' => __DIR__ . '/../templates/slices/prose-float.phtml',
                 'slice::code' => __DIR__ . '/../templates/slices/code.phtml',
                 'slice::tagged-documents' => __DIR__ . '/../templates/slices/tagged-documents.phtml',
+                'slice::related-documents' => __DIR__ . '/../templates/slices/related-documents.phtml',
 
                 /** Layouts */
                 'layout::default' => __DIR__ . '/../templates/layout/default.phtml',
@@ -209,14 +212,18 @@ class ConfigProvider
             'factories' => [
                 ViewHelper\LinkList::class => ViewHelper\Container\LinkListFactory::class,
                 ViewHelper\LinkResolver::class => ViewHelper\Container\LinkResolverFactory::class,
+                ViewHelper\RelatedDocuments::class => ViewHelper\Container\RelatedDocumentsFactory::class,
                 ViewHelper\RepositoryInformation::class => ViewHelper\Container\RepositoryInformationFactory::class,
+                ViewHelper\ResolvedDocument::class => InvokableFactory::class,
                 ViewHelper\SliceZoneRenderer::class => ViewHelper\Container\SliceZoneRendererFactory::class,
                 ViewHelper\TaggedDocuments::class => ViewHelper\Container\TaggedDocumentsFactory::class,
             ],
             'aliases' => [
                 'linkList' => ViewHelper\LinkList::class,
                 'linkResolver' => ViewHelper\LinkResolver::class,
+                'relatedDocuments' => ViewHelper\RelatedDocuments::class,
                 'repositoryInformation' => ViewHelper\RepositoryInformation::class,
+                'resolvedDocument' => ViewHelper\ResolvedDocument::class,
                 'sliceZoneRenderer' => ViewHelper\SliceZoneRenderer::class,
                 'taggedDocuments' => ViewHelper\TaggedDocuments::class,
             ],

@@ -1,0 +1,79 @@
+<?php
+declare(strict_types=1);
+
+use App\Content\HasWebPageMetaData;
+use App\ViewRenderer;
+use Prismic\Document\Fragment\Slice;
+use Prismic\Document\Fragment\StringFragment;
+use Prismic\Serializer\HtmlSerializer;
+
+/** @var ViewRenderer $this */
+
+// We can't locate related documents if no current document has been resolved
+$resolved = $this->resolvedDocument();
+if (! $resolved) {
+    return;
+}
+
+$slice = $this->slice ?? null;
+assert($slice instanceof Slice);
+$items = $slice->primary();
+$tag = $items->get('tag');
+$tag = $tag instanceof StringFragment ? [(string) ($tag)] : [];
+
+// Note: hard-coded 'page' document type specific to the default configuration
+$related = $this->relatedDocuments($resolved, 20, $tag, ['page']);
+
+if ($related->count() === 0) {
+    echo '<!-- Zero Related Documents Found -->';
+    return;
+}
+
+$visualLimit = 5;
+$i = 0;
+$documents = $related->results();
+$markup = [];
+
+foreach($documents as $document) {
+    if ($i >= $visualLimit) {
+        break;
+    }
+
+    if (! $document instanceof HasWebPageMetaData) {
+        continue;
+    }
+
+    $description = $document->metaDescription();
+    $description = empty($description) ? '' : sprintf('<p>%s</p>', $this->escapeHtml($description));
+
+    $markup[] = sprintf(
+        <<<MARKUP
+        <li>
+            <a href="%s">
+                <h2>%s</h2>
+                %s
+            </a>
+        </li>
+        MARKUP,
+        $this->linkResolver($document),
+        $this->escapeHtml($document->metaTitle()),
+        $description
+    );
+    $i++;
+}
+
+if (! count($markup)) {
+    return;
+}
+
+$serializer = new HtmlSerializer($this->linkResolver());
+
+?>
+
+<section class="related-documents">
+    <div class="container">
+        <?= $serializer($items->get('title')) ?>
+        <?= $serializer($items->get('intro')) ?>
+        <ul><?= implode(PHP_EOL, $markup) ?></ul>
+    </div>
+</section>

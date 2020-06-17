@@ -9,6 +9,7 @@ $slices = [
     'prose-float' => require __DIR__ . '/../slices/prose-float.php',
     'code' => require __DIR__ . '/../slices/code.php',
     'tagged-documents' => require __DIR__ . '/../slices/tagged-documents.php',
+    'related-documents' => require __DIR__ . '/../slices/related-documents.php',
 ];
 $labels = [];
 

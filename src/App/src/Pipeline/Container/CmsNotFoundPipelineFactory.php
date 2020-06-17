@@ -5,6 +5,7 @@ namespace App\Pipeline\Container;
 
 use App\Middleware\DocumentMeta;
 use App\Middleware\NotFoundDocumentLocator;
+use App\Middleware\ResolvedDocumentViewHelper;
 use Laminas\Stratigility\MiddlewarePipeInterface;
 use Mezzio\MiddlewareFactory;
 use Primo\Middleware\PrismicTemplate;
@@ -19,6 +20,8 @@ class CmsNotFoundPipelineFactory
         return $factory->pipeline([
             // Locate a 404 document if possible
             NotFoundDocumentLocator::class,
+            // Provide the Resolved Document View Helper with the resolved error document
+            ResolvedDocumentViewHelper::class,
             // Apply metadata to the view for the resolved document
             DocumentMeta::class,
             // Render the view

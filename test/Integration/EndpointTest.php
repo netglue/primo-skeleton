@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace AppTest\Integration;
 
 use AppTest\Integration\Framework\TestCase;
-use Laminas\Diactoros\ServerRequestFactory;
 use Prismic\ApiClient;
 use Prismic\Document;
 use Prismic\LinkResolver;

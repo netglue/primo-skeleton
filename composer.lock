@@ -2017,16 +2017,16 @@
         },
         {
             "name": "netglue/prismic-client",
-            "version": "0.3.5",
+            "version": "0.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/prismic-client.git",
-                "reference": "7fc5c3ef11a03f157c2d346af461b59fec589851"
+                "reference": "9d3fd189a65b899353c66c5228a70e907cb49f55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/prismic-client/zipball/7fc5c3ef11a03f157c2d346af461b59fec589851",
-                "reference": "7fc5c3ef11a03f157c2d346af461b59fec589851",
+                "url": "https://api.github.com/repos/netglue/prismic-client/zipball/9d3fd189a65b899353c66c5228a70e907cb49f55",
+                "reference": "9d3fd189a65b899353c66c5228a70e907cb49f55",
                 "shasum": ""
             },
             "require": {
@@ -2040,7 +2040,7 @@
                 "symfony/polyfill-php80": "^1.17"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^7.0",
+                "doctrine/coding-standard": "^7.0 || ^8.0",
                 "ext-apcu": "*",
                 "ext-curl": "*",
                 "laminas/laminas-diactoros": "^2.3",
@@ -2079,7 +2079,7 @@
                 "psr-18",
                 "psr-7"
             ],
-            "time": "2020-06-16T07:54:45+00:00"
+            "time": "2020-06-18T15:53:10+00:00"
         },
         {
             "name": "nikic/fast-route",

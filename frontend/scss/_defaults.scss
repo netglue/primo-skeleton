@@ -97,6 +97,19 @@ footer {
       font-size: 1rem;
     }
   }
+  form {
+    margin: 0.5rem;
+    vertical-align: middle;
+    line-height: 1;
+    label, input {
+      font-size: 1.2rem;
+      margin: 0 0.5rem;
+    }
+    input {
+      border-radius: 0.2rem;
+      border: 1px solid #000;
+    }
+  }
 }
 
 header {
@@ -377,5 +390,48 @@ header {
         color: $textColour;
       }
     }
+  }
+}
+
+.search-result {
+  padding: 1rem 0;
+  line-height: 1;
+  a {
+    color: $purple;
+    text-decoration-color: rgba($purple, 0.5);
+  }
+  h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  a p {
+    font-size: .9rem;
+    color: $textColour;
+  }
+}
+
+.search-pager {
+  display: flex;
+  max-width: 25rem;
+  margin: 1rem auto;
+  padding: .5rem;
+  border: 1px solid #efefef;
+  border-width: 1px 0 1px 0;
+  a {
+    display: block;
+    padding: .5rem 1rem;
+    background-color: $yellow;
+    color: $purple;
+    text-decoration: none;
+    &:hover {
+      background: $purple;
+      color: $yellow;
+    }
+  }
+  .prev {
+    margin-right: auto;
+  }
+  .next {
+    margin-left: auto;
   }
 }

@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Middleware\Search;
 use App\Pipeline\CmsContentPipeline;
 use Mezzio\Application;
 use Primo\Router\RouteParams;
@@ -62,6 +63,14 @@ class RouteProvider
             'defaults' => [
                 'template' => 'cms::error',
                 $this->params->type() => 'error',
+            ],
+        ]);
+
+        $searchResults = $this->application->get('/search[/{page:[0-9]+}]', Search::class, 'search');
+        $searchResults->setOptions([
+            'defaults' => [
+                'template' => 'static::search-results',
+                'page' => 1,
             ],
         ]);
     }

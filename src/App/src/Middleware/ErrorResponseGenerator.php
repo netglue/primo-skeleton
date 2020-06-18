@@ -41,7 +41,8 @@ class ErrorResponseGenerator
         $status = Utils::getStatusCode($e, $response);
         $response = $response->withStatus($status);
         try {
-            $response->getBody()->write($this->generateErrorContent($status));
+            $code = $this->locator->hasCode($e->getCode()) ? $e->getCode() : $status;
+            $response->getBody()->write($this->generateErrorContent($code));
 
             return $response;
         } catch (Throwable $error) {
@@ -49,7 +50,7 @@ class ErrorResponseGenerator
         }
     }
 
-    private function generateErrorContent(int $code = 500) : string
+    private function generateErrorContent(int $code) : string
     {
         $document = $this->locator->byCode($code);
         $this->renderer->addDefaultParam(

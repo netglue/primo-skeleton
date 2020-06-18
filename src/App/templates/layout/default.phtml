@@ -46,6 +46,7 @@ $this->inlineScript()->appendFile('https://cdnjs.cloudflare.com/ajax/libs/prism/
     echo $this->headTitle() . PHP_EOL;
     echo $this->headMeta()->setIndent("\t")->setSeparator("\n") . PHP_EOL;
     echo $this->headLink()->setIndent("\t")->setSeparator("\n");
+    echo $this->googleAnalytics();
     ?>
 
 </head>

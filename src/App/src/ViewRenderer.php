@@ -14,6 +14,7 @@ use Prismic\ResultSet;
 /**
  * This class is used purely for type hinting in view scripts to aid IDE auto completion
  *
+ * @method string googleAnalytics()
  * @method LinkList linkList()
  * @method LinkResolver linkResolver(Document|Link $link = null)
  * @method ResultSet relatedDocuments(Document $document, int $limit = 20, iterable $matchingTags = [], iterable $matchingTypes = [], int $relevanceThreshold = 10)

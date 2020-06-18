@@ -212,6 +212,7 @@ class ConfigProvider
     {
         return [
             'factories' => [
+                ViewHelper\GoogleAnalytics::class => ViewHelper\Container\GoogleAnalyticsFactory::class,
                 ViewHelper\LinkList::class => ViewHelper\Container\LinkListFactory::class,
                 ViewHelper\LinkResolver::class => ViewHelper\Container\LinkResolverFactory::class,
                 ViewHelper\RelatedDocuments::class => ViewHelper\Container\RelatedDocumentsFactory::class,
@@ -221,6 +222,7 @@ class ConfigProvider
                 ViewHelper\TaggedDocuments::class => ViewHelper\Container\TaggedDocumentsFactory::class,
             ],
             'aliases' => [
+                'googleAnalytics' => ViewHelper\GoogleAnalytics::class,
                 'linkList' => ViewHelper\LinkList::class,
                 'linkResolver' => ViewHelper\LinkResolver::class,
                 'relatedDocuments' => ViewHelper\RelatedDocuments::class,

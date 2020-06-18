@@ -14,7 +14,8 @@
     ],
     "homepage": "https://github.com/netglue/primo-skeleton",
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "optimize-autoloader": true
     },
     "extra": {
         "laminas": {
@@ -74,7 +75,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "AppTest\\Unit\\": "test/Unit/",
+            "AppTest\\Unit\\": "test/Unit",
             "AppTest\\Integration\\": "test/Integration"
         }
     },
@@ -96,15 +97,5 @@
         "serve": "php -S 0.0.0.0:8080 -t public/",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:netglue/primo.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:netglue/prismic-cli.git"
-        }
-    ]
+    }
 }

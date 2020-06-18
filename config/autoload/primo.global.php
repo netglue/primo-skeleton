@@ -49,6 +49,11 @@ return [
                 'uid' => 'main',
             ],
         ],
+        // Predicates to limit the results that the site wide search yields:
+        'site-search-defaults' => [
+            Predicate::at('document.type', 'page'), // Only Web Pages thanks…
+            Predicate::at('my.page.search', true), // Only pages with site search turned on
+        ],
     ],
     'dependencies' => [
         'factories' => [

@@ -1,0 +1,93 @@
+<?php
+declare(strict_types=1);
+
+use App\Content\HasWebPageMetaData;
+use App\ViewRenderer;
+use Prismic\Document;
+use Prismic\ResultSet;
+
+/** @var ViewRenderer $this */
+
+$term        = $this->searchTerm ?? '';
+$page        = $this->page ?? 1;
+$results     = $this->results ?? null;
+$pageCount   = $results instanceof ResultSet ? $results->pageCount() : 1;
+$resultCount = $results instanceof ResultSet ? $results->totalResults() : 0;
+$nextPage    = $page < $results->pageCount() ? $page + 1 : null;
+$prevPage    = $page >= 2 ? min($page - 1, $pageCount) : null;
+$nextUrl     = $nextPage ? $this->url('search', ['page' => $nextPage]) . '?term=' . urlencode($term) : null;
+$prevUrl     = $prevPage ? $this->url('search', ['page' => $prevPage]) . '?term=' . urlencode($term) : null;
+$termName    = empty($term) ? 'Anything' : $term;
+$pageTitle   = sprintf('%d results for the term "%s"', $resultCount, $termName);
+
+$this->headTitle($pageTitle);
+
+$webPageResult = function (Document $doc) : string {
+    $markup = <<<HTML
+    <article class="search-result">
+        <a href="%s">
+            <h2>%s</h2>
+            <p>%s</p>
+        </a>
+    </article>
+    HTML;
+
+    $title = $desc = null;
+    if ($doc instanceof HasWebPageMetaData) {
+        $title = $doc->metaTitle();
+        $desc = $doc->metaDescription();
+    }
+
+    return sprintf(
+        $markup,
+        $this->linkResolver($doc),
+        $this->escapeHtml($title ?: 'Untitled Document'),
+        $this->escapeHtml($desc ?: 'Sorry, there’s no description for this document…')
+    );
+};
+
+?>
+<section class="illustration-header">
+    <div class="container">
+        <div class="caption">
+            <h1>Search</h1>
+            <p><?= $this->escapeHtml($pageTitle) ?></p>
+        </div>
+    </div>
+</section>
+<?php
+if (! $results instanceof ResultSet || $resultCount === 0):
+?>
+<section class="standard-prose">
+    <div class="container rich-text">
+        <h2>Sorry, no results were found</h2>
+    </div>
+</section>
+<?php
+return;
+endif;
+?>
+<section class="standard-prose">
+    <div class="container rich-text">
+        <?php
+        foreach ($results as $page) {
+            echo $webPageResult($page);
+        }
+
+        if ($prevUrl || $nextUrl) : ?>
+        <p class="search-pager">
+            <?php
+            if ($prevUrl) {
+                printf('<a class="prev" href="%s" rel="prev">Previous</a>', $prevUrl);
+            }
+
+            if ($nextUrl) {
+                printf('<a class="next" href="%s" rel="next">Next</a>', $nextUrl);
+            }
+            ?>
+        </p>
+        <?php endif; ?>
+    </div>
+</section>
+
+

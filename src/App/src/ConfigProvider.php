@@ -47,11 +47,12 @@ class ConfigProvider
                 Middleware\DocumentMeta::class => Middleware\Container\DocumentMetaFactory::class,
                 Middleware\NotFoundDocumentLocator::class => Middleware\Container\NotFoundDocumentLocatorFactory::class,
                 Middleware\ResolvedDocumentViewHelper::class => Middleware\Container\ResolvedDocumentViewHelperFactory::class,
+                Middleware\Search::class => Middleware\Container\SearchFactory::class,
                 Pipeline\CmsContentPipeline::class => Pipeline\Container\CmsContentPipelineFactory::class,
                 Pipeline\CmsNotFoundPipeline::class => Pipeline\Container\CmsNotFoundPipelineFactory::class,
                 Psr\Http\Client\ClientInterface::class => Http\HttpClientFactory::class,
                 Psr\Log\LoggerInterface::class => Log\FileLoggerFactory::class,
-                'DefaultMezzioErrorResponseGenerator' => Mezzio\Container\ErrorResponseGeneratorFactory::class,
+                SearchService::class => Container\SearchServiceFactory::class,
             ],
             'aliases' => [
                 // Opting-In to Hydrating Result Sets. Turns Prismic Document Types into objects that we recognise.
@@ -104,6 +105,7 @@ class ConfigProvider
                 /** Page Templates */
                 'cms::page' => __DIR__ . '/../templates/pages/cms-page.phtml',
                 'cms::error' => __DIR__ . '/../templates/pages/cms-error.phtml',
+                'static::search-results' => __DIR__ . '/../templates/pages/search.phtml',
 
                 /** Slice Templates */
                 'slice::prose' => __DIR__ . '/../templates/slices/prose.phtml',

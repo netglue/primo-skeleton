@@ -1,6 +1,7 @@
 # Mezzio/Prismic Skeleton
 
 ![PHPUnit Test Suite](https://github.com/netglue/primo-skeleton/workflows/PHPUnit%20Test%20Suite/badge.svg)
+[![codecov](https://codecov.io/gh/netglue/primo-skeleton/branch/master/graph/badge.svg)](https://codecov.io/gh/netglue/primo-skeleton)
 
 You can see this app running in its default state _(Including a whole load of documentation)_ at [https://primo.ngio.uk](https://primo.ngio.uk)
 

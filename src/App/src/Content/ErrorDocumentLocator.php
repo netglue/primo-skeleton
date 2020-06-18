@@ -40,6 +40,11 @@ class ErrorDocumentLocator
         }
     }
 
+    public function hasCode(int $code) : bool
+    {
+        return isset($this->map[$code]);
+    }
+
     public function byCode(int $code) : Document
     {
         $locator = $this->map[$code] ?? null;

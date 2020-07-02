@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e70b7e48ec013470c29d3365292009c",
+    "content-hash": "9925b482a4fb68a0e21d5936db216fa3",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -421,28 +421,28 @@
         },
         {
             "name": "laminas/laminas-component-installer",
-            "version": "2.1.2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-component-installer.git",
-                "reference": "a12c65077c6b046d8f4338f9a2479e783e97aaab"
+                "reference": "5f99cfa211042ee6f19ab9cc2e7af4a1fe8f5b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-component-installer/zipball/a12c65077c6b046d8f4338f9a2479e783e97aaab",
-                "reference": "a12c65077c6b046d8f4338f9a2479e783e97aaab",
+                "url": "https://api.github.com/repos/laminas/laminas-component-installer/zipball/5f99cfa211042ee6f19ab9cc2e7af4a1fe8f5b35",
+                "reference": "5f99cfa211042ee6f19ab9cc2e7af4a1fe8f5b35",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0",
+                "composer-plugin-api": "^1.0 || ^2.0",
                 "laminas/laminas-zendframework-bridge": "^1.0",
                 "php": "^7.1"
             },
             "replace": {
-                "zendframework/zend-component-installer": "self.version"
+                "zendframework/zend-component-installer": "^2.1.2"
             },
             "require-dev": {
-                "composer/composer": "^1.5.2",
+                "composer/composer": "^1.5.2 || ~2.0.0.0@dev || ^2.0",
                 "laminas/laminas-coding-standard": "~1.0.0",
                 "malukenho/docheader": "^0.1.6",
                 "mikey179/vfsstream": "^1.6.7",
@@ -451,8 +451,8 @@
             "type": "composer-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev",
-                    "dev-develop": "2.2.x-dev"
+                    "dev-master": "2.2.x-dev",
+                    "dev-develop": "2.3.x-dev"
                 },
                 "class": "Laminas\\ComponentInstaller\\ComponentInstaller"
             },
@@ -473,7 +473,13 @@
                 "laminas",
                 "plugin"
             ],
-            "time": "2019-12-31T16:28:51+00:00"
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2020-07-01T20:13:08+00:00"
         },
         {
             "name": "laminas/laminas-config-aggregator",
@@ -1890,26 +1896,7 @@
                     "Primo\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "PrimoTest\\Unit\\": "test/Unit"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@test"
-                ],
-                "cs-check": [
-                    "phpcs"
-                ],
-                "cs-fix": [
-                    "phpcbf"
-                ],
-                "test": [
-                    "phpunit --colors=always"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1922,16 +1909,12 @@
             "description": "Mezzio integration for Prismic. Let’s call it ”Primo“…",
             "homepage": "https://github.com/netglue/primo",
             "keywords": [
+                "PSR-11",
+                "Prismic",
                 "laminas",
                 "mezzio",
-                "prismic",
-                "prismicio",
-                "psr-11"
+                "prismicio"
             ],
-            "support": {
-                "source": "https://github.com/netglue/primo/tree/0.3.0",
-                "issues": "https://github.com/netglue/primo/issues"
-            },
             "time": "2020-06-17T15:08:41+00:00"
         },
         {
@@ -1971,26 +1954,7 @@
                     "Primo\\Cli\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "PrimoTest\\Cli\\Unit\\": "test/Unit"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@test"
-                ],
-                "cs-check": [
-                    "phpcs"
-                ],
-                "cs-fix": [
-                    "phpcbf"
-                ],
-                "test": [
-                    "phpunit --colors=always --testsuite=\"Unit Tests\""
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2003,16 +1967,12 @@
             "description": "CLI tooling for developing Prismic content models",
             "homepage": "https://github.com/netglue/prismic-cli",
             "keywords": [
+                "Prismic",
                 "cli",
                 "console",
                 "laminas",
-                "prismic",
                 "prismicio"
             ],
-            "support": {
-                "source": "https://github.com/netglue/prismic-cli/tree/0.1.2",
-                "issues": "https://github.com/netglue/prismic-cli/issues"
-            },
             "time": "2020-06-15T08:27:12+00:00"
         },
         {
@@ -6361,12 +6321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "499fb201e495ef0064da064f520c845d3638fe24"
+                "reference": "6d2e5ab854782830911ddd33b7d4649b9f18c10f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/499fb201e495ef0064da064f520c845d3638fe24",
-                "reference": "499fb201e495ef0064da064f520c845d3638fe24",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6d2e5ab854782830911ddd33b7d4649b9f18c10f",
+                "reference": "6d2e5ab854782830911ddd33b7d4649b9f18c10f",
                 "shasum": ""
             },
             "conflict": {
@@ -6410,8 +6370,8 @@
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
                 "dolibarr/dolibarr": "<11.0.4",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.70|>=8,<8.7.14|>=8.8,<8.8.6",
-                "drupal/drupal": ">=7,<7.70|>=8,<8.7.14|>=8.8,<8.8.6",
+                "drupal/core": ">=7,<7.72|>=8,<8.8.8|>=8.9,<8.9.1|>=9,<9.0.1",
+                "drupal/drupal": ">=7,<7.72|>=8,<8.8.8|>=8.9,<8.9.1|>=9,<9.0.1",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
@@ -6638,7 +6598,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-17T06:37:54+00:00"
+            "time": "2020-06-19T13:23:43+00:00"
         },
         {
             "name": "sebastian/code-unit",

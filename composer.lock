@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e70b7e48ec013470c29d3365292009c",
+    "content-hash": "9925b482a4fb68a0e21d5936db216fa3",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1890,26 +1890,7 @@
                     "Primo\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "PrimoTest\\Unit\\": "test/Unit"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@test"
-                ],
-                "cs-check": [
-                    "phpcs"
-                ],
-                "cs-fix": [
-                    "phpcbf"
-                ],
-                "test": [
-                    "phpunit --colors=always"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1922,16 +1903,12 @@
             "description": "Mezzio integration for Prismic. Let’s call it ”Primo“…",
             "homepage": "https://github.com/netglue/primo",
             "keywords": [
+                "PSR-11",
+                "Prismic",
                 "laminas",
                 "mezzio",
-                "prismic",
-                "prismicio",
-                "psr-11"
+                "prismicio"
             ],
-            "support": {
-                "source": "https://github.com/netglue/primo/tree/0.3.0",
-                "issues": "https://github.com/netglue/primo/issues"
-            },
             "time": "2020-06-17T15:08:41+00:00"
         },
         {
@@ -1971,26 +1948,7 @@
                     "Primo\\Cli\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "PrimoTest\\Cli\\Unit\\": "test/Unit"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@test"
-                ],
-                "cs-check": [
-                    "phpcs"
-                ],
-                "cs-fix": [
-                    "phpcbf"
-                ],
-                "test": [
-                    "phpunit --colors=always --testsuite=\"Unit Tests\""
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2003,16 +1961,12 @@
             "description": "CLI tooling for developing Prismic content models",
             "homepage": "https://github.com/netglue/prismic-cli",
             "keywords": [
+                "Prismic",
                 "cli",
                 "console",
                 "laminas",
-                "prismic",
                 "prismicio"
             ],
-            "support": {
-                "source": "https://github.com/netglue/prismic-cli/tree/0.1.2",
-                "issues": "https://github.com/netglue/prismic-cli/issues"
-            },
             "time": "2020-06-15T08:27:12+00:00"
         },
         {
@@ -2295,31 +2249,36 @@
         },
         {
             "name": "php-http/client-common",
-            "version": "2.1.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/client-common.git",
-                "reference": "a8b29678d61556f45d6236b1667db16d998ceec5"
+                "reference": "d70de2f7bf575ef19350b8aab504857943ab2922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/client-common/zipball/a8b29678d61556f45d6236b1667db16d998ceec5",
-                "reference": "a8b29678d61556f45d6236b1667db16d998ceec5",
+                "url": "https://api.github.com/repos/php-http/client-common/zipball/d70de2f7bf575ef19350b8aab504857943ab2922",
+                "reference": "d70de2f7bf575ef19350b8aab504857943ab2922",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1",
+                "php": "^7.1 || ^8.0",
                 "php-http/httplug": "^2.0",
                 "php-http/message": "^1.6",
                 "php-http/message-factory": "^1.0",
-                "symfony/options-resolver": " ^3.4.20 || ~4.0.15 || ~4.1.9 || ^4.2.1 || ^5.0"
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "symfony/options-resolver": "^2.6 || ^3.4.20 || ~4.0.15 || ~4.1.9 || ^4.2.1 || ^5.0",
+                "symfony/polyfill-php80": "^1.17"
             },
             "require-dev": {
                 "doctrine/instantiator": "^1.1",
                 "guzzlehttp/psr7": "^1.4",
-                "phpspec/phpspec": "^5.1",
-                "phpspec/prophecy": "^1.8",
-                "sebastian/comparator": "^3.0"
+                "nyholm/psr7": "^1.2",
+                "phpspec/phpspec": "^5.1 || ^6.0",
+                "phpspec/prophecy": "^1.10.2",
+                "phpunit/phpunit": "^7.5.15 || ^8.5 || ^9.3"
             },
             "suggest": {
                 "ext-json": "To detect JSON responses with the ContentTypePlugin",
@@ -2331,7 +2290,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.2.x-dev"
                 }
             },
             "autoload": {
@@ -2357,7 +2316,7 @@
                 "http",
                 "httplug"
             ],
-            "time": "2019-11-18T08:58:18+00:00"
+            "time": "2020-07-13T15:38:36+00:00"
         },
         {
             "name": "php-http/curl-client",
@@ -2426,29 +2385,29 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.8.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "10d9019f393773345aedc0dc79e7fd678da874ee"
+                "reference": "64a18cc891957e05d91910b3c717d6bd11fbede9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/10d9019f393773345aedc0dc79e7fd678da874ee",
-                "reference": "10d9019f393773345aedc0dc79e7fd678da874ee",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/64a18cc891957e05d91910b3c717d6bd11fbede9",
+                "reference": "64a18cc891957e05d91910b3c717d6bd11fbede9",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "conflict": {
                 "nyholm/psr7": "<1.0"
             },
             "require-dev": {
-                "akeneo/phpspec-skip-example-extension": "^4.0",
+                "graham-campbell/phpspec-skip-example-extension": "^5.0",
                 "php-http/httplug": "^1.0 || ^2.0",
                 "php-http/message-factory": "^1.0",
-                "phpspec/phpspec": "^5.1",
+                "phpspec/phpspec": "^5.1 || ^6.1",
                 "puli/composer-plugin": "1.0.0-beta10"
             },
             "suggest": {
@@ -2458,7 +2417,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -2487,31 +2446,31 @@
                 "message",
                 "psr7"
             ],
-            "time": "2020-06-14T10:44:12+00:00"
+            "time": "2020-07-13T15:44:45+00:00"
         },
         {
             "name": "php-http/httplug",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/httplug.git",
-                "reference": "72d2b129a48f0490d55b7f89be0d6aa0597ffb06"
+                "reference": "191a0a1b41ed026b717421931f8d3bd2514ffbf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/httplug/zipball/72d2b129a48f0490d55b7f89be0d6aa0597ffb06",
-                "reference": "72d2b129a48f0490d55b7f89be0d6aa0597ffb06",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/191a0a1b41ed026b717421931f8d3bd2514ffbf9",
+                "reference": "191a0a1b41ed026b717421931f8d3bd2514ffbf9",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
-                "php-http/promise": "^1.0",
+                "php": "^7.1 || ^8.0",
+                "php-http/promise": "^1.1",
                 "psr/http-client": "^1.0",
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
                 "friends-of-phpspec/phpspec-code-coverage": "^4.1",
-                "phpspec/phpspec": "^4.3.4|^5.0|^6.0"
+                "phpspec/phpspec": "^5.1 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -2535,7 +2494,8 @@
                 },
                 {
                     "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com"
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
                 }
             ],
             "description": "HTTPlug, the HTTP client abstraction for PHP",
@@ -2544,7 +2504,7 @@
                 "client",
                 "http"
             ],
-            "time": "2019-12-27T10:07:11+00:00"
+            "time": "2020-07-13T15:43:23+00:00"
         },
         {
             "name": "php-http/message",
@@ -2670,21 +2630,24 @@
         },
         {
             "name": "php-http/promise",
-            "version": "v1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/promise.git",
-                "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980"
+                "reference": "4c4c1f9b7289a2ec57cde7f1e9762a5789506f88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/promise/zipball/dc494cdc9d7160b9a09bd5573272195242ce7980",
-                "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
+                "reference": "4c4c1f9b7289a2ec57cde7f1e9762a5789506f88",
                 "shasum": ""
             },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
             "require-dev": {
-                "henrikbjorn/phpspec-code-coverage": "^1.0",
-                "phpspec/phpspec": "^2.4"
+                "friends-of-phpspec/phpspec-code-coverage": "^4.3.2",
+                "phpspec/phpspec": "^5.1.2 || ^6.2"
             },
             "type": "library",
             "extra": {
@@ -2703,12 +2666,12 @@
             ],
             "authors": [
                 {
-                    "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com"
-                },
-                {
                     "name": "Joel Wurtz",
                     "email": "joel.wurtz@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
                 }
             ],
             "description": "Promise used for asynchronous HTTP requests",
@@ -2716,7 +2679,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-01-26T13:27:02+00:00"
+            "time": "2020-07-07T09:29:14+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -3072,20 +3035,20 @@
         },
         {
             "name": "psr/http-client",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-client.git",
-                "reference": "496a823ef742b632934724bf769560c2a5c7c44e"
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/496a823ef742b632934724bf769560c2a5c7c44e",
-                "reference": "496a823ef742b632934724bf769560c2a5c7c44e",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
+                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0",
+                "php": "^7.0 || ^8.0",
                 "psr/http-message": "^1.0"
             },
             "type": "library",
@@ -3117,7 +3080,7 @@
                 "psr",
                 "psr-18"
             ],
-            "time": "2018-10-30T23:29:13+00:00"
+            "time": "2020-06-29T06:28:15+00:00"
         },
         {
             "name": "psr/http-factory",
@@ -3781,16 +3744,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337"
+                "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337",
-                "reference": "dd99cb3a0aff6cadd2a8d7d7ed72c2161e218337",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5e20b83385a77593259c9f8beb2c43cd03b2ac14",
+                "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14",
                 "shasum": ""
             },
             "require": {
@@ -3800,6 +3763,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.1-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
                 }
             },
             "autoload": {
@@ -3837,7 +3804,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-27T08:34:37+00:00"
+            "time": "2020-06-06T08:49:21+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4437,16 +4404,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.17.0",
+            "version": "v1.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "5e30b2799bc1ad68f7feb62b60a73743589438dd"
+                "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/5e30b2799bc1ad68f7feb62b60a73743589438dd",
-                "reference": "5e30b2799bc1ad68f7feb62b60a73743589438dd",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4a5b6bba3259902e386eb80dd1956181ee90b5b2",
+                "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2",
                 "shasum": ""
             },
             "require": {
@@ -4456,6 +4423,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.17-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "autoload": {
@@ -4509,7 +4480,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-12T16:47:27+00:00"
+            "time": "2020-06-06T08:46:27+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -5652,37 +5623,40 @@
         },
         {
             "name": "php-http/mock-client",
-            "version": "1.3.1",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/mock-client.git",
-                "reference": "186547be76fe81cc0c0589f9285ef9c8dded9845"
+                "reference": "1f89dc2dcfcf7c2aa69a2045fd05d67c52f8b612"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/mock-client/zipball/186547be76fe81cc0c0589f9285ef9c8dded9845",
-                "reference": "186547be76fe81cc0c0589f9285ef9c8dded9845",
+                "url": "https://api.github.com/repos/php-http/mock-client/zipball/1f89dc2dcfcf7c2aa69a2045fd05d67c52f8b612",
+                "reference": "1f89dc2dcfcf7c2aa69a2045fd05d67c52f8b612",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
+                "php": "^7.1 || ^8.0",
                 "php-http/client-common": "^1.9 || ^2.0",
                 "php-http/discovery": "^1.0",
                 "php-http/httplug": "^1.0 || ^2.0",
-                "php-http/message-factory": "^1.0"
+                "php-http/message-factory": "^1.0",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "symfony/polyfill-php80": "^1.17"
             },
             "provide": {
                 "php-http/async-client-implementation": "1.0",
                 "php-http/client-implementation": "1.0"
             },
             "require-dev": {
-                "henrikbjorn/phpspec-code-coverage": "^1.0",
-                "phpspec/phpspec": "^2.4"
+                "phpspec/phpspec": "^5.1 || ^6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5708,7 +5682,7 @@
                 "mock",
                 "psr7"
             ],
-            "time": "2019-11-06T12:49:04+00:00"
+            "time": "2020-07-14T08:01:01+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -6361,12 +6335,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "499fb201e495ef0064da064f520c845d3638fe24"
+                "reference": "881b9e4a8de3186c93904230bdf6344b685fe6a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/499fb201e495ef0064da064f520c845d3638fe24",
-                "reference": "499fb201e495ef0064da064f520c845d3638fe24",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/881b9e4a8de3186c93904230bdf6344b685fe6a5",
+                "reference": "881b9e4a8de3186c93904230bdf6344b685fe6a5",
                 "shasum": ""
             },
             "conflict": {
@@ -6410,8 +6384,8 @@
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
                 "dolibarr/dolibarr": "<11.0.4",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.70|>=8,<8.7.14|>=8.8,<8.8.6",
-                "drupal/drupal": ">=7,<7.70|>=8,<8.7.14|>=8.8,<8.8.6",
+                "drupal/core": ">=7,<7.72|>=8,<8.8.8|>=8.9,<8.9.1|>=9,<9.0.1",
+                "drupal/drupal": ">=7,<7.72|>=8,<8.8.8|>=8.9,<8.9.1|>=9,<9.0.1",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
@@ -6435,6 +6409,7 @@
                 "friendsofsymfony/user-bundle": ">=1.2,<1.3.5",
                 "fuel/core": "<1.8.1",
                 "getgrav/grav": "<1.7-beta.8",
+                "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
                 "gree/jose": "<=2.2",
                 "gregwar/rst": "<1.0.3",
                 "guzzlehttp/guzzle": ">=4-rc.2,<4.2.4|>=5,<5.3.1|>=6,<6.2.1",
@@ -6460,8 +6435,9 @@
                 "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2-p.2",
                 "monolog/monolog": ">=1.8,<1.12",
                 "namshi/jose": "<2.2",
+                "nystudio107/craft-seomatic": "<3.3",
                 "nzo/url-encryptor-bundle": ">=4,<4.3.2|>=5,<5.0.1",
-                "october/october": ">=1.0.319,<1.0.466",
+                "october/october": ">=1.0.319,<1.0.467",
                 "onelogin/php-saml": "<2.10.4",
                 "oneup/uploader-bundle": "<1.9.3|>=2,<2.1.5",
                 "openid/php-openid": "<2.3",
@@ -6638,7 +6614,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-17T06:37:54+00:00"
+            "time": "2020-07-11T19:04:25+00:00"
         },
         {
             "name": "sebastian/code-unit",

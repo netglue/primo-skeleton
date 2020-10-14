@@ -13,7 +13,7 @@
             "config": {
                 "label": "Error Description",
                 "placeholder": "This description helps you leave notes and information about the page",
-                "multi": "Array"
+                "multi": "em,heading1,heading2,heading3,heading4,heading5,heading6,hyperlink,list-item,o-list-item,paragraph,preformatted,rtl,strong"
             }
         },
         "errorCode": {

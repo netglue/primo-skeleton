@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use App\Content\Container\SingleDocumentLocatorStaticFactory;
-use App\ViewHelper\Container\SingleDocumentStaticFactory;
+use App\Content\Container\SingleDocumentLocatorAbstractFactory;
 use Prismic\Predicate;
 
 return [
@@ -57,14 +56,14 @@ return [
     ],
     'dependencies' => [
         'factories' => [
-            'document.404' => [SingleDocumentLocatorStaticFactory::class, 'document.404'],
-            'document.500' => [SingleDocumentLocatorStaticFactory::class, 'document.500'],
-            'mainMenu' => [SingleDocumentLocatorStaticFactory::class, 'mainMenu'],
+            'document.404' => SingleDocumentLocatorAbstractFactory::class,
+            'document.500' => SingleDocumentLocatorAbstractFactory::class,
+            'mainMenu' => SingleDocumentLocatorAbstractFactory::class,
         ],
     ],
     'view_helpers' => [
         'factories' => [
-            'mainMenu' => [SingleDocumentStaticFactory::class, 'mainMenu'],
+            'mainMenu' => App\ViewHelper\Container\SingleDocumentAbstractFactory::class,
         ],
     ],
 ];

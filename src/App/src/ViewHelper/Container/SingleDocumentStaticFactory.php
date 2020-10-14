@@ -11,6 +11,11 @@ use Psr\Container\ContainerInterface;
 
 use function sprintf;
 
+/**
+ * @deprecated
+ *
+ * @see SingleDocumentAbstractFactory
+ */
 class SingleDocumentStaticFactory
 {
     use StaticFactoryContainerAssertion;

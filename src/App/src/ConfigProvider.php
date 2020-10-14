@@ -177,7 +177,7 @@ class ConfigProvider
             /**
              * This array contains 'special' documents that you want to be able to retrieve and inject easily into
              * various places. A good example is a 404 document. You decide the identifier, and the value is an array
-             * that can be fed to the @link Content\Container\SingleDocumentLocatorStaticFactory
+             * that can be fed to the @link Content\Container\SingleDocumentLocatorAbstractFactory
              *
              * Some examples are documented inline:
              */

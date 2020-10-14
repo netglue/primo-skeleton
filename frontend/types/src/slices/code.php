@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Primo\Cli\TypeBuilder as T;
@@ -18,7 +19,7 @@ return T::slice(
             'json',
             'shell',
             'yaml',
-            'sql'
+            'sql',
         ], 'php'),
         'code' => T::richText(
             'Your code',

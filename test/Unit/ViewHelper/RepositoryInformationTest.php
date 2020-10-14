@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Unit\ViewHelper;
@@ -10,7 +11,7 @@ use Laminas\Diactoros\Uri;
 class RepositoryInformationTest extends TestCase
 {
     /** @return mixed[] */
-    public function urlProvider() : iterable
+    public function urlProvider(): iterable
     {
         return [
             'https://example.prismic.io/api/v2' => [
@@ -25,7 +26,7 @@ class RepositoryInformationTest extends TestCase
     }
 
     /** @dataProvider urlProvider */
-    public function testHelper(string $input, string $expectedHost) : void
+    public function testHelper(string $input, string $expectedHost): void
     {
         $helper = new RepositoryInformation(new Uri($input));
         $this->assertSame($input, $helper()->url());

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware;
@@ -27,7 +28,7 @@ class NotFoundDocumentLocator implements MiddlewareInterface
         $this->templateAttribute = $templateAttribute;
     }
 
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $document = ($this->documentLocator)();
         if (! $document instanceof Document) {

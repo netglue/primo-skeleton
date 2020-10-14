@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Container;
@@ -11,7 +12,7 @@ use function sprintf;
 trait StaticFactoryContainerAssertion
 {
     /** @param mixed[] $arguments */
-    private static function assertContainer(string $methodName, array $arguments) : ContainerInterface
+    private static function assertContainer(string $methodName, array $arguments): ContainerInterface
     {
         $container = $arguments[0] ?? null;
         if (! $container instanceof ContainerInterface) {

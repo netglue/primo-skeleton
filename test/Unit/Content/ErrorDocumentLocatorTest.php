@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Unit\Content;
@@ -12,7 +13,7 @@ use Prismic\Document;
 
 class ErrorDocumentLocatorTest extends TestCase
 {
-    public function testConstructorThrowsExceptionWhenTheMapContainsInvalidEntries() : void
+    public function testConstructorThrowsExceptionWhenTheMapContainsInvalidEntries(): void
     {
         $default = $this->createMock(SingleDocumentLocator::class);
         $map = [0 => 'Not Valid'];
@@ -22,7 +23,7 @@ class ErrorDocumentLocatorTest extends TestCase
         new ErrorDocumentLocator($default, $map);
     }
 
-    public function testConstructorThrowsExceptionWhenTheMapContainsNonIntegerKeys() : void
+    public function testConstructorThrowsExceptionWhenTheMapContainsNonIntegerKeys(): void
     {
         $default = $this->createMock(SingleDocumentLocator::class);
         $map = ['whoops' => $default];
@@ -32,7 +33,7 @@ class ErrorDocumentLocatorTest extends TestCase
         new ErrorDocumentLocator($default, $map);
     }
 
-    public function testThatAnExceptionIsThrownWhenTheDefaultDocumentLocatorFailsToProvideADocument() : void
+    public function testThatAnExceptionIsThrownWhenTheDefaultDocumentLocatorFailsToProvideADocument(): void
     {
         $default = $this->createMock(SingleDocumentLocator::class);
         $default->expects($this->once())
@@ -46,7 +47,7 @@ class ErrorDocumentLocatorTest extends TestCase
         $locator->byCode(123);
     }
 
-    public function testTheDefaultDocumentIsReturnedWhenThereIsNoMatchForASpecificErrorCode() : void
+    public function testTheDefaultDocumentIsReturnedWhenThereIsNoMatchForASpecificErrorCode(): void
     {
         $doc = $this->createMock(Document::class);
         $default = $this->createMock(SingleDocumentLocator::class);
@@ -57,7 +58,7 @@ class ErrorDocumentLocatorTest extends TestCase
         $this->assertSame($doc, $locator->byCode(999));
     }
 
-    public function testThatASpecificDocumentIsReturnedWhenItMatchesTheGivenErrorCode() : void
+    public function testThatASpecificDocumentIsReturnedWhenItMatchesTheGivenErrorCode(): void
     {
         $doc = $this->createMock(Document::class);
         $default = $this->createMock(SingleDocumentLocator::class);
@@ -71,7 +72,7 @@ class ErrorDocumentLocatorTest extends TestCase
         $this->assertSame($doc, $locator->byCode(123));
     }
 
-    public function testThatTheDefaultDocumentIsUsedWhenAMatchingSpecificLocatorFailsToYieldADocument() : void
+    public function testThatTheDefaultDocumentIsUsedWhenAMatchingSpecificLocatorFailsToYieldADocument(): void
     {
         $doc = $this->createMock(Document::class);
         $default = $this->createMock(SingleDocumentLocator::class);

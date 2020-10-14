@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Content\Container;
@@ -17,21 +18,21 @@ use function sprintf;
 
 class ErrorDocumentLocatorFactory
 {
-    public function __invoke(ContainerInterface $container) : ErrorDocumentLocator
+    public function __invoke(ContainerInterface $container): ErrorDocumentLocator
     {
         $config = $container->get('config');
         $options = $config['primo']['error'];
 
         return new ErrorDocumentLocator(
             $this->assertStringIsLocator($options['default'] ?? null, $container),
-            array_map(function ($serviceId) use ($container) : SingleDocumentLocator {
+            array_map(function ($serviceId) use ($container): SingleDocumentLocator {
                 return $this->assertStringIsLocator($serviceId, $container);
             }, $options['map'] ?? [])
         );
     }
 
     /** @param mixed $serviceId */
-    private function assertStringIsLocator($serviceId, ContainerInterface $container) : SingleDocumentLocator
+    private function assertStringIsLocator($serviceId, ContainerInterface $container): SingleDocumentLocator
     {
         if (! is_string($serviceId) || empty($serviceId)) {
             throw ConfigurationError::withMessage(

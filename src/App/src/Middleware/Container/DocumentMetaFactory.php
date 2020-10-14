@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware\Container;
@@ -13,7 +14,7 @@ use function assert;
 
 class DocumentMetaFactory
 {
-    public function __invoke(ContainerInterface $container) : DocumentMeta
+    public function __invoke(ContainerInterface $container): DocumentMeta
     {
         $viewHelpers = $container->get(HelperPluginManager::class);
         assert($viewHelpers instanceof ContainerInterface);

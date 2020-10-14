@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware\Container;
@@ -20,7 +21,7 @@ class CacheMiddlewareFactory
         'unCacheAbleRouteNames' => [],
     ];
 
-    public function __invoke(ContainerInterface $container) : CacheMiddleware
+    public function __invoke(ContainerInterface $container): CacheMiddleware
     {
         $config = $container->has('config') ? $container->get('config') : [];
         $debug = (bool) ($config['debug'] ?: false);

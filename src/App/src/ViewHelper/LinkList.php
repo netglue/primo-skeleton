@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -25,12 +26,12 @@ class LinkList
         $this->resolver = $resolver;
     }
 
-    public function __invoke() : self
+    public function __invoke(): self
     {
         return $this;
     }
 
-    public function renderToMarkup(Links $links) : string
+    public function renderToMarkup(Links $links): string
     {
         $list = [];
         foreach ($links as $item) {
@@ -49,7 +50,7 @@ class LinkList
 
         return sprintf(
             '<ul>%s</ul>',
-            implode('', array_map(static function (array $item) : string {
+            implode('', array_map(static function (array $item): string {
                 return sprintf('<li><a href="%s">%s</a></li>', $item['url'], $item['anchor']);
             }, $list))
         );

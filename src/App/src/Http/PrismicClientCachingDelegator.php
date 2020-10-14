@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http;
@@ -14,7 +15,7 @@ use function assert;
 
 class PrismicClientCachingDelegator
 {
-    public function __invoke(ContainerInterface $container, string $name, callable $callback) : ClientInterface
+    public function __invoke(ContainerInterface $container, string $name, callable $callback): ClientInterface
     {
         $psrClient = $callback();
         assert($psrClient instanceof ClientInterface);

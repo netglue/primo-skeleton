@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Content\Container;
@@ -13,7 +14,7 @@ use function sprintf;
 
 class SingleDocumentLocatorAbstractFactory
 {
-    public function __invoke(ContainerInterface $container, string $requestedName) : SingleDocumentLocator
+    public function __invoke(ContainerInterface $container, string $requestedName): SingleDocumentLocator
     {
         $client = $container->get(ApiClient::class);
         $config = $container->get('config')['primo']['documents'] ?? [];

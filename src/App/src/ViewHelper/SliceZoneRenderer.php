@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -22,7 +23,7 @@ class SliceZoneRenderer
         $this->templateMap = $templateMap;
     }
 
-    public function __invoke(Document $document, string $sliceFragmentName) : string
+    public function __invoke(Document $document, string $sliceFragmentName): string
     {
         $data = $document->data()->content();
 
@@ -44,7 +45,7 @@ class SliceZoneRenderer
         return $buffer;
     }
 
-    private function renderSlice(Slice $slice) : string
+    private function renderSlice(Slice $slice): string
     {
         $template = $this->templateMap[$slice->type()] ?? null;
         if (! $template) {

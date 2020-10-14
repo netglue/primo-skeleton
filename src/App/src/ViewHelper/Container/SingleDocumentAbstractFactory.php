@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper\Container;
@@ -12,7 +13,7 @@ use function sprintf;
 
 class SingleDocumentAbstractFactory
 {
-    public function __invoke(ContainerInterface $container, string $requestedName) : SingleDocument
+    public function __invoke(ContainerInterface $container, string $requestedName): SingleDocument
     {
         $locator = $container->get($requestedName);
         if (! $locator instanceof SingleDocumentLocator) {

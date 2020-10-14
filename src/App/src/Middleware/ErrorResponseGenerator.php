@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware;
@@ -37,7 +38,7 @@ class ErrorResponseGenerator
         Throwable $e,
         ServerRequestInterface $request,
         ResponseInterface $response
-    ) : ResponseInterface {
+    ): ResponseInterface {
         $status = Utils::getStatusCode($e, $response);
         $response = $response->withStatus($status);
         try {
@@ -50,7 +51,7 @@ class ErrorResponseGenerator
         }
     }
 
-    private function generateErrorContent(int $code) : string
+    private function generateErrorContent(int $code): string
     {
         $document = $this->locator->byCode($code);
         $this->renderer->addDefaultParam(

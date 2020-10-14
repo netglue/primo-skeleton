@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App;
@@ -24,7 +25,7 @@ class RouteProvider
         $this->params = $container->get(RouteParams::class);
     }
 
-    public function __invoke() : void
+    public function __invoke(): void
     {
         // Help FastRoute Limit matches for UID strings
         $uidConstraint = sprintf('{%s:[\w]+[\w-]+}', $this->params->uid());

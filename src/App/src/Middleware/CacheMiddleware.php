@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware;
@@ -49,7 +50,7 @@ class CacheMiddleware implements MiddlewareInterface
         $this->unCacheAbleRouteNames = $unCacheAbleRouteNames;
     }
 
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $cachedResponse = $this->getCachedResponse($request);
         if ($cachedResponse) {
@@ -69,14 +70,14 @@ class CacheMiddleware implements MiddlewareInterface
         return $response->withHeader(self::CACHE_HEADER_NAME, 'MISS');
     }
 
-    private function cacheItem(ServerRequestInterface $request) : CacheItemInterface
+    private function cacheItem(ServerRequestInterface $request): CacheItemInterface
     {
         $key = sprintf('http-%s', md5((string) $request->getUri()));
 
         return $this->cache->getItem($key);
     }
 
-    private function getCachedResponse(ServerRequestInterface $request) :? ResponseInterface
+    private function getCachedResponse(ServerRequestInterface $request): ?ResponseInterface
     {
         $item = $this->cacheItem($request);
         if (! $item->isHit()) {
@@ -95,7 +96,7 @@ class CacheMiddleware implements MiddlewareInterface
         return $response;
     }
 
-    private function isCacheAbleRequest(ServerRequestInterface $request) : bool
+    private function isCacheAbleRequest(ServerRequestInterface $request): bool
     {
         if (! $this->enabled) {
             return false;
@@ -110,12 +111,12 @@ class CacheMiddleware implements MiddlewareInterface
         return $routeResult instanceof RouteResult && $this->isCacheAbleRoute($routeResult);
     }
 
-    private function isTemporaryRedirect(int $status) : bool
+    private function isTemporaryRedirect(int $status): bool
     {
         return $status === 302 || $status === 303 || $status === 307;
     }
 
-    private function isCacheAbleResponse(ResponseInterface $response) : bool
+    private function isCacheAbleResponse(ResponseInterface $response): bool
     {
         // Don't cache server-side error responses
         $status = $response->getStatusCode();
@@ -140,7 +141,7 @@ class CacheMiddleware implements MiddlewareInterface
         return count(array_intersect($abortTokens, $cacheControl)) === 0;
     }
 
-    private function isCacheAbleRoute(RouteResult $routeResult) : bool
+    private function isCacheAbleRoute(RouteResult $routeResult): bool
     {
         $name = $routeResult->getMatchedRouteName();
         if (! $name) {
@@ -150,7 +151,7 @@ class CacheMiddleware implements MiddlewareInterface
         return ! in_array($name, $this->unCacheAbleRouteNames, true);
     }
 
-    private function cacheResponse(ServerRequestInterface $request, ResponseInterface $response) : void
+    private function cacheResponse(ServerRequestInterface $request, ResponseInterface $response): void
     {
         $item = $this->cacheItem($request);
         $cacheControl = $response->getHeader('Cache-Control');

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper\Container;
@@ -12,7 +13,7 @@ use function assert;
 
 class SliceZoneRendererFactory
 {
-    public function __invoke(ContainerInterface $container) : SliceZoneRenderer
+    public function __invoke(ContainerInterface $container): SliceZoneRenderer
     {
         $config = $container->has('config') ? $container->get('config') : [];
         $map = $config['templates']['slices'] ?? [];

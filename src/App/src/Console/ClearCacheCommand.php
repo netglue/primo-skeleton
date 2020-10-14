@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Console;
@@ -25,13 +26,13 @@ class ClearCacheCommand extends Command
         parent::__construct(self::DEFAULT_NAME);
     }
 
-    protected function configure() : void
+    protected function configure(): void
     {
         $this->setDescription('Clears cache pools associated with the website and content');
         $this->setHelp('This command has no arguments or options');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) : int
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->clear();
         $style = new SymfonyStyle($input, $output);
@@ -43,7 +44,7 @@ class ClearCacheCommand extends Command
         return 0;
     }
 
-    private function clear() : void
+    private function clear(): void
     {
         foreach ($this->cachePools as $pool) {
             $pool->clear();

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Http;
@@ -11,7 +12,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 class HttpClientFactory
 {
-    public function __invoke(ContainerInterface $container) : ClientInterface
+    public function __invoke(ContainerInterface $container): ClientInterface
     {
         return new CurlClient(
             $container->get(ResponseFactoryInterface::class),

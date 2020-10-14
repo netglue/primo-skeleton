@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App;
@@ -23,7 +24,7 @@ class SearchService
     /**
      * Perform a FullText Search
      */
-    public function query(string $terms, string $language = '*', int $page = 1, int $perPage = 10) : ResultSet
+    public function query(string $terms, string $language = '*', int $page = 1, int $perPage = 10): ResultSet
     {
         $predicates = $this->defaultPredicates;
         $predicates[] = Predicate::fulltext('document', $terms);

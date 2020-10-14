@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Content;
@@ -40,12 +41,12 @@ class ErrorDocumentLocator
         }
     }
 
-    public function hasCode(int $code) : bool
+    public function hasCode(int $code): bool
     {
         return isset($this->map[$code]);
     }
 
-    public function byCode(int $code) : Document
+    public function byCode(int $code): Document
     {
         $locator = $this->map[$code] ?? null;
         $document = $locator ? $locator() : null;
@@ -56,7 +57,7 @@ class ErrorDocumentLocator
         return $document;
     }
 
-    private function defaultDocument() : Document
+    private function defaultDocument(): Document
     {
         $document = ($this->defaultError)();
         if (! $document) {

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware\Container;
@@ -13,7 +14,7 @@ use function is_callable;
 
 class ErrorResponseGeneratorDelegator
 {
-    public function __invoke(ContainerInterface $container, string $name, callable $callback) : callable
+    public function __invoke(ContainerInterface $container, string $name, callable $callback): callable
     {
         $defaultResponseGenerator = $callback();
         assert(is_callable($defaultResponseGenerator));

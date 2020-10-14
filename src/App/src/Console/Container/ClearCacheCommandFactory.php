@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Console\Container;
@@ -10,7 +11,7 @@ use Psr\Container\ContainerInterface;
 
 class ClearCacheCommandFactory
 {
-    public function __invoke(ContainerInterface $container) : ClearCacheCommand
+    public function __invoke(ContainerInterface $container): ClearCacheCommand
     {
         return new ClearCacheCommand(
             $container->get(PrismicCache::class),

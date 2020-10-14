@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper\Container;
@@ -28,7 +29,7 @@ class SingleDocumentStaticFactory
         $this->id = $id;
     }
 
-    public function __invoke(ContainerInterface $container) : SingleDocument
+    public function __invoke(ContainerInterface $container): SingleDocument
     {
         $locator = $container->get($this->id);
         if (! $locator instanceof SingleDocumentLocator) {
@@ -43,7 +44,7 @@ class SingleDocumentStaticFactory
     }
 
     /** @param mixed[] $args */
-    public static function __callStatic(string $id, array $args) : SingleDocument
+    public static function __callStatic(string $id, array $args): SingleDocument
     {
         $container = self::assertContainer(__METHOD__, $args);
 

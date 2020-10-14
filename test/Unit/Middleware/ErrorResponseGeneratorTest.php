@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Unit\Middleware;
@@ -22,21 +23,21 @@ class ErrorResponseGeneratorTest extends TestCase
     /** @var TemplateRendererInterface|MockObject */
     private $renderer;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->documentLocator = $this->createMock(ErrorDocumentLocator::class);
         $this->renderer = $this->createMock(TemplateRendererInterface::class);
     }
 
-    private function renderExpectsDocument(Document $document) : void
+    private function renderExpectsDocument(Document $document): void
     {
         $this->renderer->expects($this->once())
             ->method('addDefaultParam')
             ->with(TemplateRendererInterface::TEMPLATE_ALL, 'document', $document);
     }
 
-    private function rendererWillRenderTemplateWith(string $templateName) : void
+    private function rendererWillRenderTemplateWith(string $templateName): void
     {
         $this->renderer->expects($this->once())
             ->method('render')
@@ -44,9 +45,9 @@ class ErrorResponseGeneratorTest extends TestCase
             ->willReturn('RENDERED CONTENT');
     }
 
-    private function responseGenerator(?callable $fallback = null) : ErrorResponseGenerator
+    private function responseGenerator(?callable $fallback = null): ErrorResponseGenerator
     {
-        $fallback = $fallback ?: function () : void {
+        $fallback = $fallback ?: function (): void {
             $this->fail('The fallback response generator was called');
         };
 
@@ -59,7 +60,7 @@ class ErrorResponseGeneratorTest extends TestCase
     }
 
     /** @return int[][] */
-    public function errorCodes() : iterable
+    public function errorCodes(): iterable
     {
         return [
             'Less than 100' => [0, 500],
@@ -75,7 +76,7 @@ class ErrorResponseGeneratorTest extends TestCase
     }
 
     /** @dataProvider errorCodes */
-    public function testThatHttpStatusCodeMatchesErrorCodeWithMatchingDocument(int $errorCode, int $expectedHttpCode) : void
+    public function testThatHttpStatusCodeMatchesErrorCodeWithMatchingDocument(int $errorCode, int $expectedHttpCode): void
     {
         $error = new Exception('Error', $errorCode);
         $request = $this->serverRequest('/foo');
@@ -104,7 +105,7 @@ class ErrorResponseGeneratorTest extends TestCase
     }
 
     /** @dataProvider errorCodes */
-    public function testExpectedHttpStatusCodeWhenTheDefaultDocumentIsUsed(int $errorCode, int $expectedHttpCode) : void
+    public function testExpectedHttpStatusCodeWhenTheDefaultDocumentIsUsed(int $errorCode, int $expectedHttpCode): void
     {
         $error = new Exception('Error', $errorCode);
         $request = $this->serverRequest('/foo');
@@ -132,7 +133,7 @@ class ErrorResponseGeneratorTest extends TestCase
         self::assertResponseHasStatus($generatedResponse, $expectedHttpCode);
     }
 
-    public function testThatTheFallbackGeneratorIsCalledWhenGeneratingErrorContentFails() : void
+    public function testThatTheFallbackGeneratorIsCalledWhenGeneratingErrorContentFails(): void
     {
         $error = new Exception('Error', 0);
         $libraryError = new Exception('Whatever', 123);
@@ -160,7 +161,7 @@ class ErrorResponseGeneratorTest extends TestCase
             $error,
             $request,
             $expectedResponse
-        ) : ResponseInterface {
+        ): ResponseInterface {
             $this->assertSame($error, $receivedError);
             $this->assertSame($request, $receivedRequest);
             self::assertMessageBodyMatches($receivedResponse, $this->equalTo('Content'));

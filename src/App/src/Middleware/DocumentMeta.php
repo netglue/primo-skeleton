@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware;
@@ -25,7 +26,7 @@ class DocumentMeta implements MiddlewareInterface
         $this->metaHelper = $metaHelper;
     }
 
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $document = $request->getAttribute(Document::class);
 

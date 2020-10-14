@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Integration\Framework;
@@ -19,7 +20,7 @@ class TestCase extends UnitTestCase
     /** @var Application|null */
     private $application;
 
-    protected function getContainer() : ContainerInterface
+    protected function getContainer(): ContainerInterface
     {
         if (! $this->container) {
             $config = require __DIR__ . '/../../config/config.php';
@@ -32,7 +33,7 @@ class TestCase extends UnitTestCase
         return $this->container;
     }
 
-    protected function getApplication() : Application
+    protected function getApplication(): Application
     {
         if (! $this->application) {
             $container = $this->getContainer();
@@ -45,7 +46,7 @@ class TestCase extends UnitTestCase
         return $this->application;
     }
 
-    protected function handle(ServerRequestInterface $request) : ResponseInterface
+    protected function handle(ServerRequestInterface $request): ResponseInterface
     {
         return $this->getApplication()->handle($request);
     }

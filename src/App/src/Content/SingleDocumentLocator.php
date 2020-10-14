@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Content;
@@ -22,16 +23,16 @@ class SingleDocumentLocator
         $this->finder = $finder;
     }
 
-    public function __invoke() :? Document
+    public function __invoke(): ?Document
     {
         return ($this->finder)($this->apiClient);
     }
 
-    public static function withPredicates(ApiClient $client, Predicate ...$predicates) : self
+    public static function withPredicates(ApiClient $client, Predicate ...$predicates): self
     {
         return new static(
             $client,
-            static function (ApiClient $client) use ($predicates) :? Document {
+            static function (ApiClient $client) use ($predicates): ?Document {
                 return $client->queryFirst(
                     $client->createQuery()->query(...$predicates)
                 );
@@ -39,31 +40,31 @@ class SingleDocumentLocator
         );
     }
 
-    public static function withBookmarkName(ApiClient $client, string $bookmark) : self
+    public static function withBookmarkName(ApiClient $client, string $bookmark): self
     {
         return new static(
             $client,
-            static function (ApiClient $client) use ($bookmark) :? Document {
+            static function (ApiClient $client) use ($bookmark): ?Document {
                 return $client->findByBookmark($bookmark);
             }
         );
     }
 
-    public static function withUid(ApiClient $client, string $type, string $uid) : self
+    public static function withUid(ApiClient $client, string $type, string $uid): self
     {
         return new static(
             $client,
-            static function (ApiClient $client) use ($type, $uid) :? Document {
+            static function (ApiClient $client) use ($type, $uid): ?Document {
                 return $client->findByUid($type, $uid);
             }
         );
     }
 
-    public static function withType(ApiClient $client, string $type) : self
+    public static function withType(ApiClient $client, string $type): self
     {
         return new static(
             $client,
-            static function (ApiClient $client) use ($type) :? Document {
+            static function (ApiClient $client) use ($type): ?Document {
                 return $client->queryFirst(
                     $client->createQuery()->query(
                         Predicate::at('document.type', $type)

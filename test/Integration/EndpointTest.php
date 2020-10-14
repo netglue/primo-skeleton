@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Integration;
@@ -14,7 +15,7 @@ use function uniqid;
 class EndpointTest extends TestCase
 {
     /** @return mixed[] */
-    public function pageProvider() : iterable
+    public function pageProvider(): iterable
     {
         $container = $this->getContainer();
         $apiClient = $container->get(ApiClient::class);
@@ -25,7 +26,7 @@ class EndpointTest extends TestCase
         }
     }
 
-    public function testHomePageIsAccessible() : void
+    public function testHomePageIsAccessible(): void
     {
         $request = $this->serverRequest('/');
         $response = $this->handle($request);
@@ -33,7 +34,7 @@ class EndpointTest extends TestCase
     }
 
     /** @dataProvider pageProvider */
-    public function testThatAllPagesAreRoutable(Document $document) : void
+    public function testThatAllPagesAreRoutable(Document $document): void
     {
         $this->getApplication();
         $container = $this->getContainer();
@@ -47,14 +48,14 @@ class EndpointTest extends TestCase
         self::assertResponseHasStatus($response, 200);
     }
 
-    public function testNotFound() : void
+    public function testNotFound(): void
     {
         $request = $this->serverRequest('/' . uniqid('not_found', false));
         $response = $this->handle($request);
         self::assertResponseHasStatus($response, 404);
     }
 
-    public function testException() : void
+    public function testException(): void
     {
         $request = $this->serverRequest('/exceptional');
         $response = $this->handle($request);

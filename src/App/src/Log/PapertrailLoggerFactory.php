@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Log;
@@ -10,7 +11,7 @@ use Psr\Container\ContainerInterface;
 
 class PapertrailLoggerFactory
 {
-    public function __invoke(ContainerInterface $container) : Logger
+    public function __invoke(ContainerInterface $container): Logger
     {
         $config = $container->has('config') ? $container->get('config') : [];
         $options = $config['logging'] ?? [];

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware\Container;
@@ -12,7 +13,7 @@ use function assert;
 
 class ResolvedDocumentViewHelperFactory
 {
-    public function __invoke(ContainerInterface $container) : ResolvedDocumentViewHelper
+    public function __invoke(ContainerInterface $container): ResolvedDocumentViewHelper
     {
         $helpers = $container->get(HelperPluginManager::class);
         assert($helpers instanceof ContainerInterface);

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -17,24 +18,24 @@ class RepositoryInformation
         $this->repoUri = $uri;
     }
 
-    public function __invoke() : self
+    public function __invoke(): self
     {
         return $this;
     }
 
     /** Full url to the api endpoint */
-    public function url() : string
+    public function url(): string
     {
         return (string) $this->repoUri;
     }
 
     /** Api host name */
-    public function host() : string
+    public function host(): string
     {
         return $this->stripCdnFromHost();
     }
 
-    private function stripCdnFromHost() : string
+    private function stripCdnFromHost(): string
     {
         $host = $this->repoUri->getHost();
 

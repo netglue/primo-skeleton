@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -26,7 +27,7 @@ class TaggedDocuments
     }
 
     /** @return Document[] */
-    public function __invoke(string $tag) : iterable
+    public function __invoke(string $tag): iterable
     {
         $query = $this->apiClient->createQuery()
             ->query(Predicate::hasTag($tag));

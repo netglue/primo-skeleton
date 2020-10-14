@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -16,7 +17,7 @@ class SingleDocument
         $this->locator = $locator;
     }
 
-    public function __invoke() : Document
+    public function __invoke(): Document
     {
         return ($this->locator)();
     }

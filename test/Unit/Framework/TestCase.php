@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Unit\Framework;
@@ -12,7 +13,7 @@ class TestCase extends PHPUnitTestCase
 {
     use Psr7Assertions;
 
-    protected function serverRequest(string $path, string $method = 'GET') : ServerRequestInterface
+    protected function serverRequest(string $path, string $method = 'GET'): ServerRequestInterface
     {
         return new ServerRequest([], [], $path, $method);
     }

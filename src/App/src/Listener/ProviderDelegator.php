@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Listener;
@@ -13,7 +14,7 @@ use function assert;
 
 class ProviderDelegator
 {
-    public function __invoke(ContainerInterface $container, string $name, callable $target) : ListenerProviderInterface
+    public function __invoke(ContainerInterface $container, string $name, callable $target): ListenerProviderInterface
     {
         $provider = $target();
         assert($provider instanceof AttachableListenerProviderInterface);

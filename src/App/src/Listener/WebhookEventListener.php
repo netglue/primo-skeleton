@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Listener;
@@ -39,7 +40,7 @@ class WebhookEventListener
         $this->logger = $logger;
     }
 
-    public function __invoke(WebhookEvent $event) : void
+    public function __invoke(WebhookEvent $event): void
     {
         $payload = $event->payload();
 
@@ -71,7 +72,7 @@ class WebhookEventListener
         $this->clearCaches();
     }
 
-    private function clearCaches() : void
+    private function clearCaches(): void
     {
         foreach ($this->pools as $pool) {
             $pool->clear();

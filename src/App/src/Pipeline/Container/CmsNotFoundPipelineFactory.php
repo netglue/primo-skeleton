@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Pipeline\Container;
@@ -13,7 +14,7 @@ use Psr\Container\ContainerInterface;
 
 class CmsNotFoundPipelineFactory
 {
-    public function __invoke(ContainerInterface $container) : MiddlewarePipeInterface
+    public function __invoke(ContainerInterface $container): MiddlewarePipeInterface
     {
         $factory = $container->get(MiddlewareFactory::class);
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware;
@@ -20,7 +21,7 @@ class ResolvedDocumentViewHelper implements MiddlewareInterface
         $this->helper = $helper;
     }
 
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $document = $request->getAttribute(Document::class);
         if ($document instanceof Document) {

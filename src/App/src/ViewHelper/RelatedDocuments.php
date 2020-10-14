@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -31,7 +32,7 @@ class RelatedDocuments
         iterable $matchingTags = [],
         iterable $matchingTypes = [],
         int $relevanceThreshold = 10
-    ) : ResultSet {
+    ): ResultSet {
         $predicates = [Predicate::similar($relatedTo->id(), $relevanceThreshold)];
         if ($matchingTags !== []) {
             Assert::allString($matchingTags, 'The matchingTags argument can only contain strings');

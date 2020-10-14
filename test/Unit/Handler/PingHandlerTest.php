@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Unit\Handler;
@@ -14,7 +15,7 @@ use const JSON_THROW_ON_ERROR;
 
 class PingHandlerTest extends TestCase
 {
-    public function testResponse() : void
+    public function testResponse(): void
     {
         $pingHandler = new PingHandler();
         $response = $pingHandler->handle(

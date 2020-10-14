@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Log;
@@ -11,7 +12,7 @@ use Psr\Log\LoggerInterface;
 
 class FileLoggerFactory
 {
-    public function __invoke(ContainerInterface $container) : LoggerInterface
+    public function __invoke(ContainerInterface $container): LoggerInterface
     {
         $config = $container->has('config') ? $container->get('config') : [];
         $options = $config['logging'] ?? [];

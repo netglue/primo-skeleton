@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Container;
@@ -10,7 +11,7 @@ use Psr\Container\ContainerInterface;
 
 class UrlHelperDelegator
 {
-    public function __invoke(ContainerInterface $container, string $name, callable $target) : UrlHelper
+    public function __invoke(ContainerInterface $container, string $name, callable $target): UrlHelper
     {
         return new class ($container->get(RouterInterface::class)) extends UrlHelper {
             /** @inheritDoc */
@@ -20,7 +21,7 @@ class UrlHelperDelegator
                 array $queryParams = [],
                 ?string $fragmentIdentifier = null,
                 array $options = []
-            ) : string {
+            ): string {
                 try {
                     return parent::__invoke($routeName, $routeParams, $queryParams, $fragmentIdentifier, $options);
                 } catch (RuntimeException $exception) {

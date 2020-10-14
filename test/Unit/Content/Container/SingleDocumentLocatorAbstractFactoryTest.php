@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Unit\Content\Container;
@@ -18,7 +19,7 @@ class SingleDocumentLocatorAbstractFactoryTest extends TestCase
     /** @var SingleDocumentLocatorAbstractFactory */
     private $factory;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->container = $this->createMock(ContainerInterface::class);
@@ -26,7 +27,7 @@ class SingleDocumentLocatorAbstractFactoryTest extends TestCase
     }
 
     /** @param mixed[] $config */
-    private function containerHasConfig(array $config) : void
+    private function containerHasConfig(array $config): void
     {
         $client = $this->createMock(ApiClient::class);
         $client->expects(self::never())->method(self::anything());
@@ -38,7 +39,7 @@ class SingleDocumentLocatorAbstractFactoryTest extends TestCase
             ]);
     }
 
-    public function testThatAnUnknownDocumentStringWillCauseAnError() : void
+    public function testThatAnUnknownDocumentStringWillCauseAnError(): void
     {
         $this->containerHasConfig([]);
         $this->expectException(ConfigurationError::class);
@@ -47,7 +48,7 @@ class SingleDocumentLocatorAbstractFactoryTest extends TestCase
     }
 
     /** @return mixed[] */
-    public function validConfigurationsProvider() : iterable
+    public function validConfigurationsProvider(): iterable
     {
         return [
             'Bookmark' => [
@@ -75,7 +76,7 @@ class SingleDocumentLocatorAbstractFactoryTest extends TestCase
      *
      * @dataProvider validConfigurationsProvider
      */
-    public function testGivenValidConfigurationALocatorWillBeReturned(array $config) : void
+    public function testGivenValidConfigurationALocatorWillBeReturned(array $config): void
     {
         $this->containerHasConfig([
             'primo' => [
@@ -87,7 +88,7 @@ class SingleDocumentLocatorAbstractFactoryTest extends TestCase
         $this->addToAssertionCount(1);
     }
 
-    public function testBadConfigurationWillCauseAnError() : void
+    public function testBadConfigurationWillCauseAnError(): void
     {
         $this->containerHasConfig([
             'primo' => [

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Content\Container;
@@ -29,7 +30,7 @@ class SingleDocumentLocatorStaticFactory
         $this->id = $id;
     }
 
-    public function __invoke(ContainerInterface $container) : SingleDocumentLocator
+    public function __invoke(ContainerInterface $container): SingleDocumentLocator
     {
         $client = $container->get(ApiClient::class);
         $config = $container->get('config')['primo']['documents'];
@@ -71,7 +72,7 @@ class SingleDocumentLocatorStaticFactory
     }
 
     /** @param mixed[] $args */
-    public static function __callStatic(string $id, array $args) : SingleDocumentLocator
+    public static function __callStatic(string $id, array $args): SingleDocumentLocator
     {
         $container = self::assertContainer(__METHOD__, $args);
 

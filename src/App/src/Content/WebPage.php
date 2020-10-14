@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Content;
@@ -17,24 +18,24 @@ use Prismic\Document\FragmentCollection;
  */
 class WebPage extends Document implements HasWebPageMetaData
 {
-    public function metaTitle() : string
+    public function metaTitle(): string
     {
         $title = $this->nonEmptyStringFragmentOrNull('meta-title');
 
         return $title ?: 'Untitled Document';
     }
 
-    public function metaDescription() :? string
+    public function metaDescription(): ?string
     {
         return $this->nonEmptyStringFragmentOrNull('meta-description');
     }
 
-    public function robotsMeta() :? string
+    public function robotsMeta(): ?string
     {
         return $this->nonEmptyStringFragmentOrNull('robots');
     }
 
-    private function nonEmptyStringFragmentOrNull(string $fragmentName, ?FragmentCollection $collection = null) :? string
+    private function nonEmptyStringFragmentOrNull(string $fragmentName, ?FragmentCollection $collection = null): ?string
     {
         $collection = $collection ?? $this->data()->content();
         $fragment = $collection->get($fragmentName);

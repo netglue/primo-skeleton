@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace AppTest\Integration\Cache;
@@ -9,7 +10,7 @@ use Psr\Cache\CacheItemPoolInterface;
 
 class CacheAvailabilityTest extends TestCase
 {
-    public function testPrismicCacheIsAvailable() : void
+    public function testPrismicCacheIsAvailable(): void
     {
         $container = $this->getContainer();
         $cache = $container->get(PrismicCache::class);

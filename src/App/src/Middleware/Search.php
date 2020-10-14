@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware;
@@ -36,7 +37,7 @@ class Search implements RequestHandlerInterface
         $this->perPage = $perPage;
     }
 
-    public function handle(ServerRequestInterface $request) : ResponseInterface
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $query = $request->getQueryParams();
         $term = (string) ($query[self::TERM_PARAM] ?? '');
@@ -61,7 +62,7 @@ class Search implements RequestHandlerInterface
         );
     }
 
-    private function assertRouteResult(ServerRequestInterface $request) : RouteResult
+    private function assertRouteResult(ServerRequestInterface $request): RouteResult
     {
         $result = $request->getAttribute(RouteResult::class);
         if (! $result instanceof RouteResult) {
@@ -71,7 +72,7 @@ class Search implements RequestHandlerInterface
         return $result;
     }
 
-    private function pageNumber(RouteResult $routeResult) : int
+    private function pageNumber(RouteResult $routeResult): int
     {
         $params = $routeResult->getMatchedParams();
         $page = is_numeric($params['page']) ? $params['page'] : 1;
@@ -79,7 +80,7 @@ class Search implements RequestHandlerInterface
         return (int) $page;
     }
 
-    private function assertTemplate(ServerRequestInterface $request) : string
+    private function assertTemplate(ServerRequestInterface $request): string
     {
         $template = $request->getAttribute('template');
         if (! is_string($template) || empty($template)) {

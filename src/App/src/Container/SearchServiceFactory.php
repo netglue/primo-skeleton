@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Container;
@@ -9,7 +10,7 @@ use Psr\Container\ContainerInterface;
 
 class SearchServiceFactory
 {
-    public function __invoke(ContainerInterface $container) : SearchService
+    public function __invoke(ContainerInterface $container): SearchService
     {
         $config = $container->has('config') ? $container->get('config') : [];
         $seed = $config['primo']['site-search-defaults'] ?? [];

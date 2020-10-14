@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Log\Container;
@@ -11,7 +12,7 @@ use function assert;
 
 class ErrorHandlerDelegator
 {
-    public function __invoke(ContainerInterface $container, string $name, callable $callback) : ErrorHandler
+    public function __invoke(ContainerInterface $container, string $name, callable $callback): ErrorHandler
     {
         $handler = $callback();
         assert($handler instanceof ErrorHandler);

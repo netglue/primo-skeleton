@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper;
@@ -50,7 +51,7 @@ class LinkResolver implements CmsLinkResolver
         ));
     }
 
-    public function resolve(Link $link) :? string
+    public function resolve(Link $link): ?string
     {
         return $this->resolver->resolve($link);
     }

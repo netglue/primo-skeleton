@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Log;
@@ -21,7 +22,7 @@ class ErrorHandlerLoggingListener
         $this->logger = $logger;
     }
 
-    public function __invoke(Throwable $error, ServerRequestInterface $request, ResponseInterface $response) : void
+    public function __invoke(Throwable $error, ServerRequestInterface $request, ResponseInterface $response): void
     {
         $message = sprintf(
             '%s %s resulted in a %d response code: %s',

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Middleware\Container;
@@ -15,7 +16,7 @@ use function sprintf;
 
 class NotFoundDocumentLocatorFactory
 {
-    public function __invoke(ContainerInterface $container) : NotFoundDocumentLocator
+    public function __invoke(ContainerInterface $container): NotFoundDocumentLocator
     {
         $config = $container->get('config');
         $options = $config['primo']['notFound'] ?? [];

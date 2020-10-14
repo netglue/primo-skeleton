@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ViewHelper\Container;
@@ -10,7 +11,7 @@ use Psr\Container\ContainerInterface;
 
 class RepositoryInformationFactory
 {
-    public function __invoke(ContainerInterface $container) : RepositoryInformation
+    public function __invoke(ContainerInterface $container): RepositoryInformation
     {
         $config = $container->has('config') ? $container->get('config') : [];
         $url = $config['prismic']['api'] ?? null;

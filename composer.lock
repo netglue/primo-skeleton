@@ -4766,16 +4766,16 @@
         },
         {
             "name": "helmich/phpunit-psr7-assert",
-            "version": "v4.1.0",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martin-helmich/phpunit-psr7-assert.git",
-                "reference": "047500978cb299d05bde7f1505c9b8807da20f9d"
+                "reference": "db6b39b957f027747c03c2d7bc9fe76cab141765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martin-helmich/phpunit-psr7-assert/zipball/047500978cb299d05bde7f1505c9b8807da20f9d",
-                "reference": "047500978cb299d05bde7f1505c9b8807da20f9d",
+                "url": "https://api.github.com/repos/martin-helmich/phpunit-psr7-assert/zipball/db6b39b957f027747c03c2d7bc9fe76cab141765",
+                "reference": "db6b39b957f027747c03c2d7bc9fe76cab141765",
                 "shasum": ""
             },
             "require": {
@@ -4807,7 +4807,17 @@
                 }
             ],
             "description": "PHPUnit assertions for testing PSR7-compliant applications",
-            "time": "2020-03-28T13:49:42+00:00"
+            "funding": [
+                {
+                    "url": "https://donate.helmich.me",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/martin-helmich",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-16T18:53:41+00:00"
         },
         {
             "name": "justinrainbow/json-schema",

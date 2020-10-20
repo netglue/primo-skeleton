@@ -48,7 +48,7 @@
         "mezzio/mezzio-laminasviewrenderer": "^2.2",
         "monolog/monolog": "^2.1",
         "netglue/primo": "0.5.0",
-        "netglue/prismic-cli": "^0.1.1",
+        "netglue/prismic-cli": "^0.2.0",
         "phly/phly-event-dispatcher": "^1.0",
         "php-http/cache-plugin": "^1.7",
         "php-http/curl-client": "^2.1",

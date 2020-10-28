@@ -469,16 +469,16 @@
         },
         {
             "name": "laminas/laminas-component-installer",
-            "version": "2.3.0",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-component-installer.git",
-                "reference": "92735977fb7ad9050712e8ff804edff50d01406e"
+                "reference": "ea0c0d147f229ff78eeab52f4097e532ed7e2351"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-component-installer/zipball/92735977fb7ad9050712e8ff804edff50d01406e",
-                "reference": "92735977fb7ad9050712e8ff804edff50d01406e",
+                "url": "https://api.github.com/repos/laminas/laminas-component-installer/zipball/ea0c0d147f229ff78eeab52f4097e532ed7e2351",
+                "reference": "ea0c0d147f229ff78eeab52f4097e532ed7e2351",
                 "shasum": ""
             },
             "require": {
@@ -523,7 +523,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-09-02T15:15:31+00:00"
+            "time": "2020-10-27T21:29:13+00:00"
         },
         {
             "name": "laminas/laminas-config-aggregator",

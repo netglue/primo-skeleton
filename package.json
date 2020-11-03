@@ -60,6 +60,6 @@
     "node-sass": "^5",
     "npm-watch": "^0.7.0",
     "postcss-cli": "^7.1.2",
-    "uglify-js": "^3.11.4"
+    "uglify-js": "^3.11.5"
   }
 }

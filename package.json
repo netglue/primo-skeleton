@@ -48,18 +48,18 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.2.5",
     "concat": "^1.0.3",
     "cssnano": "^4.1.10",
     "eslint": "^7.21.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-standard": "^4.1.0",
+    "eslint-plugin-standard": "^5.0.0",
     "node-sass": "^5",
     "npm-watch": "^0.7.0",
-    "postcss-cli": "^7.1.2",
+    "postcss-cli": "^8.3.1",
     "uglify-js": "^3.13.0"
   }
 }

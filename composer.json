@@ -47,7 +47,7 @@
         "mezzio/mezzio-helpers": "^5.4.0",
         "mezzio/mezzio-laminasviewrenderer": "^2.2",
         "monolog/monolog": "^2.2.0",
-        "netglue/primo": "0.5.1",
+        "netglue/primo": "0.5.3",
         "netglue/prismic-cli": "^0.3.0",
         "phly/phly-event-dispatcher": "^1.0",
         "php-http/cache-plugin": "^1.7",

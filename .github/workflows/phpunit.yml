@@ -1,13 +1,10 @@
 name: PHPUnit Test Suite
 on:
-  schedule:
-    - cron: '0 9 * * 1'
   push:
     branches:
       - master
   pull_request:
-    branches:
-      - master
+
 jobs:
   run-tests:
     name: PHP ${{ matrix.php-versions }}

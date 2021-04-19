@@ -50,16 +50,17 @@
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "concat": "^1.0.3",
-    "cssnano": "^4.1.10",
-    "eslint": "^7.21.0",
+    "cssnano": "^5.0.1",
+    "eslint": "^7.24.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
     "node-sass": "^5",
-    "npm-watch": "^0.7.0",
+    "npm-watch": "^0.9.0",
+    "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
-    "uglify-js": "^3.13.0"
+    "uglify-js": "^3.13.4"
   }
 }

@@ -30,7 +30,7 @@
         }
     },
     "require": {
-        "php": "^7.3",
+        "php": "^7.3 || ~8.0",
         "ext-apcu": "*",
         "ext-json": "*",
         "laminas/laminas-cache": "^2.10.1",
@@ -53,6 +53,7 @@
         "php-http/cache-plugin": "^1.7",
         "php-http/curl-client": "^2.1",
         "psr/cache": "^1.0",
+        "psr/container": "^1 || ^2",
         "psr/log": "^1.1",
         "webmozart/assert": "^1.9"
     },

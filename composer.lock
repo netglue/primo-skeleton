@@ -1366,16 +1366,16 @@
         },
         {
             "name": "laminas/laminas-cli",
-            "version": "1.0.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-cli.git",
-                "reference": "2b33cb5bf1b6b72e84a33f11c40ca4c7b7d7b2ef"
+                "reference": "875a174c161c84c84c43bdff1e10cfe4ecbda704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-cli/zipball/2b33cb5bf1b6b72e84a33f11c40ca4c7b7d7b2ef",
-                "reference": "2b33cb5bf1b6b72e84a33f11c40ca4c7b7d7b2ef",
+                "url": "https://api.github.com/repos/laminas/laminas-cli/zipball/875a174c161c84c84c43bdff1e10cfe4ecbda704",
+                "reference": "875a174c161c84c84c43bdff1e10cfe4ecbda704",
                 "shasum": ""
             },
             "require": {
@@ -1391,6 +1391,7 @@
                 "laminas/laminas-coding-standard": "~2.0.0",
                 "laminas/laminas-mvc": "^3.1.1",
                 "laminas/laminas-servicemanager": "^3.4",
+                "mikey179/vfsstream": "2.0.x-dev",
                 "phpunit/phpunit": "^9.4.1",
                 "vimeo/psalm": "^4.4.1"
             },
@@ -1437,7 +1438,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-02-26T17:15:07+00:00"
+            "time": "2021-05-20T17:32:19+00:00"
         },
         {
             "name": "laminas/laminas-component-installer",

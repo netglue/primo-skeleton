@@ -51,7 +51,7 @@
     "autoprefixer": "^10.2.5",
     "concat": "^1.0.3",
     "cssnano": "^5.0.1",
-    "eslint": "^7.24.0",
+    "eslint": "^7.31.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",

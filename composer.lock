@@ -1680,16 +1680,16 @@
         },
         {
             "name": "laminas/laminas-escaper",
-            "version": "2.7.0",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-escaper.git",
-                "reference": "5e04bc5ae5990b17159d79d331055e2c645e5cc5"
+                "reference": "2d6dce99668b413610e9544183fa10392437f542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/5e04bc5ae5990b17159d79d331055e2c645e5cc5",
-                "reference": "5e04bc5ae5990b17159d79d331055e2c645e5cc5",
+                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/2d6dce99668b413610e9544183fa10392437f542",
+                "reference": "2d6dce99668b413610e9544183fa10392437f542",
                 "shasum": ""
             },
             "require": {
@@ -1700,7 +1700,7 @@
                 "zendframework/zend-escaper": "^2.6.1"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-coding-standard": "~2.3.0",
                 "phpunit/phpunit": "^9.3",
                 "psalm/plugin-phpunit": "^0.12.2",
                 "vimeo/psalm": "^3.16"
@@ -1739,7 +1739,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-11-17T21:26:43+00:00"
+            "time": "2021-06-26T14:26:08+00:00"
         },
         {
             "name": "laminas/laminas-eventmanager",
@@ -2215,16 +2215,16 @@
         },
         {
             "name": "laminas/laminas-stratigility",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-stratigility.git",
-                "reference": "d6336b873fe8f766f84b82164f2a25e4decd6a9a"
+                "reference": "5553756e056825b24ae6ac8621404b7b1d47b516"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stratigility/zipball/d6336b873fe8f766f84b82164f2a25e4decd6a9a",
-                "reference": "d6336b873fe8f766f84b82164f2a25e4decd6a9a",
+                "url": "https://api.github.com/repos/laminas/laminas-stratigility/zipball/5553756e056825b24ae6ac8621404b7b1d47b516",
+                "reference": "5553756e056825b24ae6ac8621404b7b1d47b516",
                 "shasum": ""
             },
             "require": {
@@ -2242,12 +2242,14 @@
                 "zendframework/zend-stratigility": "^3.2.0"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-coding-standard": "~2.3.0",
                 "laminas/laminas-diactoros": "^1.7.1",
                 "malukenho/docheader": "^0.1.6",
                 "phpspec/prophecy": "^1.12",
                 "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.3"
+                "phpunit/phpunit": "^9.3",
+                "psalm/plugin-phpunit": "^0.16.0",
+                "vimeo/psalm": "^4.7"
             },
             "suggest": {
                 "psr/http-message-implementation": "Please install a psr/http-message-implementation to consume Stratigility; e.g., laminas/laminas-diactoros"
@@ -2295,7 +2297,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-10-20T10:38:04+00:00"
+            "time": "2021-06-28T22:16:13+00:00"
         },
         {
             "name": "laminas/laminas-view",
@@ -2403,16 +2405,16 @@
         },
         {
             "name": "laminas/laminas-zendframework-bridge",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
-                "reference": "6cccbddfcfc742eb02158d6137ca5687d92cee32"
+                "reference": "13af2502d9bb6f7d33be2de4b51fb68c6cdb476e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/6cccbddfcfc742eb02158d6137ca5687d92cee32",
-                "reference": "6cccbddfcfc742eb02158d6137ca5687d92cee32",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/13af2502d9bb6f7d33be2de4b51fb68c6cdb476e",
+                "reference": "13af2502d9bb6f7d33be2de4b51fb68c6cdb476e",
                 "shasum": ""
             },
             "require": {
@@ -2461,20 +2463,20 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-02-25T21:54:58+00:00"
+            "time": "2021-06-24T12:49:22+00:00"
         },
         {
             "name": "mezzio/mezzio",
-            "version": "3.4.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mezzio/mezzio.git",
-                "reference": "b8589fc3cc5424cdcbecfebf647c6595d22daf5a"
+                "reference": "4e7fa905c5dcfd8f973ccaa4481754a38b5d4545"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mezzio/mezzio/zipball/b8589fc3cc5424cdcbecfebf647c6595d22daf5a",
-                "reference": "b8589fc3cc5424cdcbecfebf647c6595d22daf5a",
+                "url": "https://api.github.com/repos/mezzio/mezzio/zipball/4e7fa905c5dcfd8f973ccaa4481754a38b5d4545",
+                "reference": "4e7fa905c5dcfd8f973ccaa4481754a38b5d4545",
                 "shasum": ""
             },
             "require": {
@@ -2482,16 +2484,18 @@
                 "laminas/laminas-httphandlerrunner": "^1.3.0",
                 "laminas/laminas-stratigility": "^3.3.0",
                 "laminas/laminas-zendframework-bridge": "^1.1.0",
-                "mezzio/mezzio-router": "^3.2.0",
+                "mezzio/mezzio-router": "^3.5",
                 "mezzio/mezzio-template": "^2.1.0",
                 "php": "^7.3||~8.0.0",
                 "psr/container": "^1.0",
+                "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0.1",
                 "psr/http-server-middleware": "^1.0",
                 "webmozart/assert": "^1.10"
             },
             "conflict": {
                 "container-interop/container-interop": "<1.2.0",
+                "filp/whoops": "<2.1.1",
                 "laminas/laminas-diactoros": "<1.7.1",
                 "laminas/laminas-stdlib": "<3.2.1"
             },
@@ -2500,7 +2504,7 @@
             },
             "require-dev": {
                 "filp/whoops": "^2.8.0",
-                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-coding-standard": "~2.2.0",
                 "laminas/laminas-diactoros": "^2.5.0",
                 "laminas/laminas-servicemanager": "^3.6.0",
                 "malukenho/docheader": "^0.1.8",
@@ -2569,7 +2573,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-05-10T19:22:24+00:00"
+            "time": "2021-08-06T16:23:58+00:00"
         },
         {
             "name": "mezzio/mezzio-fastroute",
@@ -2814,16 +2818,16 @@
         },
         {
             "name": "mezzio/mezzio-router",
-            "version": "3.3.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mezzio/mezzio-router.git",
-                "reference": "42659ecc8db2e60ca3dde413507a98d879031a37"
+                "reference": "f36f7149db1c17c0bdff86ddcfea66ae22b1737f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mezzio/mezzio-router/zipball/42659ecc8db2e60ca3dde413507a98d879031a37",
-                "reference": "42659ecc8db2e60ca3dde413507a98d879031a37",
+                "url": "https://api.github.com/repos/mezzio/mezzio-router/zipball/f36f7149db1c17c0bdff86ddcfea66ae22b1737f",
+                "reference": "f36f7149db1c17c0bdff86ddcfea66ae22b1737f",
                 "shasum": ""
             },
             "require": {
@@ -2831,15 +2835,21 @@
                 "laminas/laminas-zendframework-bridge": "^1.0",
                 "php": "^7.3 || ~8.0.0",
                 "psr/container": "^1.0",
+                "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0.1",
-                "psr/http-server-middleware": "^1.0"
+                "psr/http-server-middleware": "^1.0",
+                "webmozart/assert": "^1.10"
+            },
+            "conflict": {
+                "mezzio/mezzio": "<3.5"
             },
             "replace": {
                 "zendframework/zend-expressive-router": "^3.1.1"
             },
             "require-dev": {
-                "laminas/laminas-coding-standard": "~2.1.0",
-                "malukenho/docheader": "^0.1.6",
+                "laminas/laminas-coding-standard": "~2.2.0",
+                "laminas/laminas-diactoros": "^2.6",
+                "laminas/laminas-stratigility": "^3.4",
                 "phpspec/prophecy": "^1.9",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.4.1",
@@ -2890,7 +2900,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-01-06T16:46:13+00:00"
+            "time": "2021-07-25T13:17:10+00:00"
         },
         {
             "name": "mezzio/mezzio-template",
@@ -4880,16 +4890,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.1",
+            "version": "v1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e"
+                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/c6c942b1ac76c82448322025e084cadc56048b4e",
-                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/46cd95797e9df938fdd2b03693b5fca5e64b01ce",
+                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce",
                 "shasum": ""
             },
             "require": {
@@ -4901,7 +4911,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.22-dev"
+                    "dev-main": "1.23-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -4939,7 +4949,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.1"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.23.0"
             },
             "funding": [
                 {
@@ -4955,7 +4965,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T16:49:33+00:00"
+            "time": "2021-02-19T12:13:01+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -9149,5 +9159,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

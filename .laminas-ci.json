@@ -1,6 +1,11 @@
 {
     "extensions": [
-        "mbstring, curl, json, intl, apcu, pcov"
+        "mbstring",
+        "curl",
+        "json",
+        "intl",
+        "apcu",
+        "pcov"
     ],
     "ini": [
         "apc.enabled=1",

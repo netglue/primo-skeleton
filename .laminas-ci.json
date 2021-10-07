@@ -1,8 +1,13 @@
 {
     "extensions": [
-        "mbstring,curl,json,intl,apcu,pcov"
+        "mbstring, curl, json, intl, apcu, pcov"
     ],
-    "ini": [],
+    "ini": [
+        "apc.enabled=1",
+        "apc.enable_cli=1",
+        "apc.use_request_time=0",
+        "pcov.enabled=1"
+    ],
     "additional_checks": [
         {
             "name": "Coverage",

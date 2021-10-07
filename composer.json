@@ -30,7 +30,7 @@
         }
     },
     "require": {
-        "php": "^7.3 || ~8.0 || ~8.1",
+        "php": "^7.3 || ~8.0",
         "ext-apcu": "*",
         "ext-json": "*",
         "fig/http-message-util": "^1.1",

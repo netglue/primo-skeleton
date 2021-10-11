@@ -53,7 +53,7 @@
         "mezzio/mezzio-router": "^3.7",
         "mezzio/mezzio-template": "^2.2",
         "monolog/monolog": "^2.3.5",
-        "netglue/primo": "^0.6.1",
+        "netglue/primo": "^1.0.0",
         "netglue/prismic-cli": "^0.3.0",
         "netglue/prismic-client": "^0.8.0",
         "phly/phly-event-dispatcher": "^1.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72980b0f51f620f60643f99be2bb3aec",
+    "content-hash": "16b2d4de76811acec5118b4d51d72db4",
     "packages": [
         {
             "name": "brick/varexporter",
@@ -3155,40 +3155,54 @@
         },
         {
             "name": "netglue/prismic-cli",
-            "version": "0.3.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/prismic-cli.git",
-                "reference": "10f95c662826ab747942bcbb87c9f3725b96c40e"
+                "reference": "03650a721b4e2217661b19618d5f9cd1f81852c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/prismic-cli/zipball/10f95c662826ab747942bcbb87c9f3725b96c40e",
-                "reference": "10f95c662826ab747942bcbb87c9f3725b96c40e",
+                "url": "https://api.github.com/repos/netglue/prismic-cli/zipball/03650a721b4e2217661b19618d5f9cd1f81852c9",
+                "reference": "03650a721b4e2217661b19618d5f9cd1f81852c9",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "netglue/prismic-client": "^0",
-                "php": "^7.3||^8.0",
-                "psr/container": "^1.0",
-                "symfony/console": "^5.1"
+                "netglue/prismic-client": "^0.8",
+                "netglue/prismic-doctype-client": "^0.1.1",
+                "php": "^7.3 || ~8.0 || ~8.1",
+                "php-http/discovery": "^1.14.1",
+                "psr/container": "^1.0||^2.0",
+                "psr/http-client": "^1.0",
+                "psr/http-client-implementation": "*",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "sebastian/diff": "^4.0",
+                "symfony/console": "^5.3.7",
+                "webmozart/assert": "^1.10"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^8.0",
+                "doctrine/coding-standard": "^9.0.0",
                 "ext-curl": "*",
-                "laminas/laminas-diactoros": "^2.4",
-                "php-http/curl-client": "^2.1",
-                "phpunit/phpunit": "^9.5",
+                "laminas/laminas-config-aggregator": "^1.6",
+                "laminas/laminas-diactoros": "^2.8",
+                "laminas/laminas-servicemanager": "^3.7",
+                "lctrs/psalm-psr-container-plugin": "^1.4",
+                "php-http/curl-client": "^2.2",
+                "phpunit/phpunit": "^9.5.10",
+                "psalm/plugin-phpunit": "^0.16.1",
                 "roave/security-advisories": "dev-master",
-                "squizlabs/php_codesniffer": "^3.5"
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.10"
             },
             "type": "library",
             "extra": {
                 "laminas": {
                     "config-provider": [
                         "Primo\\Cli\\ConfigProvider",
-                        "Primo\\Cli\\ApiToolsConfigProvider"
+                        "Primo\\Cli\\ApiToolsConfigProvider",
+                        "Primo\\Cli\\CustomTypeApiConfigProvider"
                     ]
                 }
             },
@@ -3218,9 +3232,9 @@
             ],
             "support": {
                 "issues": "https://github.com/netglue/prismic-cli/issues",
-                "source": "https://github.com/netglue/prismic-cli/tree/0.3.0"
+                "source": "https://github.com/netglue/prismic-cli/tree/1.0.1"
             },
-            "time": "2021-03-03T12:28:40+00:00"
+            "time": "2021-10-07T12:58:49+00:00"
         },
         {
             "name": "netglue/prismic-client",
@@ -3295,6 +3309,75 @@
                 "source": "https://github.com/netglue/prismic-client/tree/0.8.0"
             },
             "time": "2021-10-01T12:14:43+00:00"
+        },
+        {
+            "name": "netglue/prismic-doctype-client",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/netglue/prismic-doctype-client.git",
+                "reference": "0368af4fade3118c6f9d024963ee5ab2fa4e7d50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/netglue/prismic-doctype-client/zipball/0368af4fade3118c6f9d024963ee5ab2fa4e7d50",
+                "reference": "0368af4fade3118c6f9d024963ee5ab2fa4e7d50",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3 || ~8.0 || ~8.1",
+                "php-http/discovery": "^1.14.1",
+                "psr/http-client": "^1.0",
+                "psr/http-client-implementation": "*",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "webmozart/assert": "^1.10"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9.0",
+                "ergebnis/composer-normalize": "^2.15",
+                "ext-curl": "*",
+                "infection/infection": "^0",
+                "laminas/laminas-diactoros": "^2.8",
+                "php-http/curl-client": "^2.2",
+                "phpunit/phpunit": "^9.5.10",
+                "psalm/plugin-phpunit": "^0.16.1",
+                "react/child-process": "^0.6.3",
+                "react/http": "^1.5",
+                "roave/security-advisories": "dev-latest",
+                "squizlabs/php_codesniffer": "^3.6",
+                "vimeo/psalm": "^4.10"
+            },
+            "type": "library",
+            "extra": {
+                "composer-normalize": {
+                    "indent-size": 4,
+                    "indent-style": "space"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prismic\\DocumentType\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "George Steel",
+                    "email": "george@net-glue.co.uk"
+                }
+            ],
+            "description": "Prismic Custom Type API Client",
+            "homepage": "https://github.com/netglue/prismic-doctype-client",
+            "support": {
+                "issues": "https://github.com/netglue/prismic-doctype-client/issues",
+                "source": "https://github.com/netglue/prismic-doctype-client/tree/0.1.1"
+            },
+            "time": "2021-10-07T12:46:59+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -4505,6 +4588,72 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "sebastian/diff",
+            "version": "4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/diff.git",
+                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3461e3fccc7cfdfc2720be910d3bd73c69be590d",
+                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3",
+                "symfony/process": "^4.2 || ^5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                }
+            ],
+            "description": "Diff implementation",
+            "homepage": "https://github.com/sebastianbergmann/diff",
+            "keywords": [
+                "diff",
+                "udiff",
+                "unidiff",
+                "unified diff"
+            ],
+            "support": {
+                "issues": "https://github.com/sebastianbergmann/diff/issues",
+                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-26T13:10:38+00:00"
         },
         {
             "name": "symfony/console",
@@ -8111,72 +8260,6 @@
             "time": "2020-10-26T15:52:27+00:00"
         },
         {
-            "name": "sebastian/diff",
-            "version": "4.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3461e3fccc7cfdfc2720be910d3bd73c69be590d",
-                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3",
-                "symfony/process": "^4.2 || ^5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de"
-                },
-                {
-                    "name": "Kore Nordmann",
-                    "email": "mail@kore-nordmann.de"
-                }
-            ],
-            "description": "Diff implementation",
-            "homepage": "https://github.com/sebastianbergmann/diff",
-            "keywords": [
-                "diff",
-                "udiff",
-                "unidiff",
-                "unified diff"
-            ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/diff/issues",
-                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.4"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-10-26T13:10:38+00:00"
-        },
-        {
             "name": "sebastian/environment",
             "version": "5.1.3",
             "source": {
@@ -9096,10 +9179,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3 || ~8.0 || ~8.1",
+        "php": "^7.3 || ~8.0",
         "ext-apcu": "*",
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

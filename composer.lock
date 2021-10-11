@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72980b0f51f620f60643f99be2bb3aec",
+    "content-hash": "ccb9562933374012d739695261cc4182",
     "packages": [
         {
             "name": "brick/varexporter",
@@ -3066,16 +3066,16 @@
         },
         {
             "name": "netglue/primo",
-            "version": "0.6.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netglue/primo.git",
-                "reference": "bfee198e18f42697318868a9da6be382ee1be883"
+                "reference": "a7efdd65c9476f09b5e75b76ef819b686c2961a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netglue/primo/zipball/bfee198e18f42697318868a9da6be382ee1be883",
-                "reference": "bfee198e18f42697318868a9da6be382ee1be883",
+                "url": "https://api.github.com/repos/netglue/primo/zipball/a7efdd65c9476f09b5e75b76ef819b686c2961a5",
+                "reference": "a7efdd65c9476f09b5e75b76ef819b686c2961a5",
                 "shasum": ""
             },
             "require": {
@@ -3149,9 +3149,9 @@
             ],
             "support": {
                 "issues": "https://github.com/netglue/primo/issues",
-                "source": "https://github.com/netglue/primo/tree/0.6.1"
+                "source": "https://github.com/netglue/primo/tree/1.0.0"
             },
-            "time": "2021-10-07T14:23:31+00:00"
+            "time": "2021-10-08T15:12:33+00:00"
         },
         {
             "name": "netglue/prismic-cli",
@@ -9096,10 +9096,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3 || ~8.0 || ~8.1",
+        "php": "^7.3 || ~8.0",
         "ext-apcu": "*",
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

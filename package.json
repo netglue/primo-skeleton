@@ -59,7 +59,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "node-sass": "^6",
     "npm-watch": "^0.11.0",
-    "postcss": "^8.3.9",
+    "postcss": "^8.4.12",
     "postcss-cli": "^9.0.1",
     "uglify-js": "^3.14.2"
   }
